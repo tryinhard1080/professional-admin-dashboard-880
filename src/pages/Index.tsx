@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Recycle, TrendingDown, TrendingUp, Truck, MapPin, DollarSign, ArrowUpRight, ArrowDownRight, Upload, FileText, Brain, BarChart3, Download } from "lucide-react";
+import { Recycle, TrendingDown, TrendingUp, Truck, MapPin, DollarSign, ArrowUpRight, ArrowDownRight, Upload, FileText, Brain, BarChart3, Download, Leaf, PiggyBank, Bell, Settings } from "lucide-react";
 import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, Tooltip, AreaChart, Area } from "recharts";
 
 const wasteMetrics = [
@@ -22,113 +22,139 @@ const regionalBenchmarks = [
 
 const Index = () => {
   return (
-    <div className="space-y-8">
-      <header className="flex justify-between items-center animate-fade-in">
-        <div>
-          <h1 className="text-4xl font-bold gradient-text">Waste Analytics Dashboard</h1>
-          <p className="text-muted-foreground">Real-time insights for The Trash Hub operations</p>
-        </div>
-        <div className="flex items-center space-x-3">
-          <Button className="glass-button">
-            <Upload className="h-4 w-4 mr-2" />
-            Upload Contract
-          </Button>
-          <button className="glass-button px-4 py-2 rounded-xl hover-scale">
-            <Recycle className="h-5 w-5 text-primary" />
-          </button>
-          <button className="glass-button px-4 py-2 rounded-xl hover-scale">
-            <Truck className="h-5 w-5 text-accent" />
-          </button>
-        </div>
-      </header>
-
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 animate-slide-up">
-        <Card className="glass-card p-6 hover-scale">
-          <div className="flex items-start justify-between">
-            <div>
-              <p className="text-sm text-muted-foreground">Monthly Costs/Property</p>
-              <h2 className="text-3xl font-bold text-foreground">$342.50</h2>
-              <p className="text-sm text-success flex items-center gap-1 mt-1">
-                <TrendingDown className="h-3 w-3" />
-                -8.3% vs last month
-              </p>
-            </div>
-            <div className="p-3 bg-gradient-to-br from-primary to-primary-glow rounded-xl">
-              <DollarSign className="h-6 w-6 text-white" />
-            </div>
-          </div>
-        </Card>
-
-        <Card className="glass-card p-6 hover-scale">
-          <div className="flex items-start justify-between">
-            <div>
-              <p className="text-sm text-muted-foreground">Pickup Optimization</p>
-              <h2 className="text-3xl font-bold text-foreground">94%</h2>
-              <p className="text-sm text-success flex items-center gap-1 mt-1">
-                <TrendingUp className="h-3 w-3" />
-                +12% efficiency gain
-              </p>
-            </div>
-            <div className="p-3 bg-gradient-to-br from-secondary to-accent rounded-xl">
-              <Truck className="h-6 w-6 text-white" />
-            </div>
-          </div>
-        </Card>
-
-        <Card className="glass-card p-6 hover-scale">
-          <div className="flex items-start justify-between">
-            <div>
-              <p className="text-sm text-muted-foreground">Sustainability Score</p>
-              <h2 className="text-3xl font-bold text-foreground">91/100</h2>
-              <p className="text-sm text-success flex items-center gap-1 mt-1">
-                <TrendingUp className="h-3 w-3" />
-                Industry leading
-              </p>
-            </div>
-            <div className="p-3 bg-gradient-to-br from-primary to-success rounded-xl">
-              <Recycle className="h-6 w-6 text-white" />
-            </div>
-          </div>
-        </Card>
-
-        <Card className="glass-card p-6 hover-scale">
-          <div className="flex items-start justify-between">
-            <div>
-              <p className="text-sm text-muted-foreground">Cost Savings YTD</p>
-              <h2 className="text-3xl font-bold text-foreground">$187K</h2>
-              <p className="text-sm text-success flex items-center gap-1 mt-1">
-                <ArrowUpRight className="h-3 w-3" />
-                +34% vs target
-              </p>
-            </div>
-            <div className="p-3 bg-gradient-to-br from-success to-primary-glow rounded-xl">
-              <TrendingUp className="h-6 w-6 text-white" />
-            </div>
-          </div>
-        </Card>
-      </div>
-
-      {/* Document Upload & AI Analysis Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card className="glass-card p-6">
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-xl font-semibold text-foreground">Contract Analysis</h3>
-            <Badge className="bg-primary/10 text-primary border-primary/20">AI-Powered</Badge>
-          </div>
-          
-          {/* Drag & Drop Upload Zone */}
-          <div className="border-2 border-dashed border-primary/30 rounded-xl p-8 text-center hover:border-primary/50 transition-colors cursor-pointer group">
-            <div className="flex flex-col items-center space-y-4">
-              <div className="p-4 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full group-hover:scale-110 transition-transform">
-                <Upload className="h-8 w-8 text-primary" />
+    <div className="min-h-screen animate-fade-in">
+      <div className="container mx-auto px-4 py-8 max-w-7xl">
+        <header className="glass-nav backdrop-blur-md bg-white/10 border border-white/20 rounded-xl p-6 mb-8 animate-slide-up">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="p-2 rounded-lg bg-gradient-primary">
+                <Recycle className="h-8 w-8 text-white" />
               </div>
               <div>
-                <p className="text-lg font-medium text-foreground">Drop contracts here</p>
-                <p className="text-sm text-muted-foreground">or click to browse files</p>
-                <p className="text-xs text-muted-foreground mt-1">PDF, DOC, DOCX up to 10MB</p>
+                <h1 className="text-4xl font-bold gradient-text">WasteWise Analytics</h1>
+                <p className="text-lg text-muted-foreground">Smart Waste Management & Cost Optimization Platform</p>
               </div>
             </div>
+            <div className="flex items-center gap-3">
+              <Button variant="glass" size="icon" className="hover:scale-110">
+                <Bell className="h-5 w-5" />
+              </Button>
+              <Button variant="glass" size="icon" className="hover:scale-110">
+                <Settings className="h-5 w-5" />
+              </Button>
+              <Button variant="gradient" size="lg" className="font-semibold">
+                <TrendingUp className="mr-2 h-5 w-5" />
+                View Reports
+              </Button>
+            </div>
           </div>
+        </header>
+
+        {/* Enhanced KPI Cards with 2025 Design */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <Card variant="glass" interactive className="group">
+            <div className="p-6">
+              <div className="flex items-start justify-between">
+                <div>
+                  <p className="text-sm font-medium text-foreground/80">Monthly Costs/Property</p>
+                  <h2 className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">$342.50</h2>
+                  <p className="text-sm text-muted-foreground flex items-center mt-2">
+                    <TrendingDown className="mr-1 h-3 w-3 text-secondary" />
+                    -8.3% vs last month
+                  </p>
+                </div>
+                <div className="p-3 rounded-lg bg-gradient-primary group-hover:animate-glow-pulse">
+                  <DollarSign className="h-6 w-6 text-white" />
+                </div>
+              </div>
+            </div>
+          </Card>
+
+          <Card variant="glass" interactive className="group">
+            <div className="p-6">
+              <div className="flex items-start justify-between">
+                <div>
+                  <p className="text-sm font-medium text-foreground/80">Pickup Optimization</p>
+                  <h2 className="text-3xl font-bold bg-gradient-secondary bg-clip-text text-transparent">94%</h2>
+                  <p className="text-sm text-muted-foreground flex items-center mt-2">
+                    <TrendingUp className="mr-1 h-3 w-3 text-secondary" />
+                    +12% efficiency gain
+                  </p>
+                </div>
+                <div className="p-3 rounded-lg bg-gradient-secondary group-hover:animate-glow-pulse">
+                  <Truck className="h-6 w-6 text-white" />
+                </div>
+              </div>
+            </div>
+          </Card>
+
+          <Card variant="glass" interactive className="group">
+            <div className="p-6">
+              <div className="flex items-start justify-between">
+                <div>
+                  <p className="text-sm font-medium text-foreground/80">Sustainability Score</p>
+                  <h2 className="text-3xl font-bold bg-gradient-data bg-clip-text text-transparent">91/100</h2>
+                  <p className="text-sm text-muted-foreground flex items-center mt-2">
+                    <TrendingUp className="mr-1 h-3 w-3 text-secondary" />
+                    Industry leading
+                  </p>
+                </div>
+                <div className="p-3 rounded-lg bg-gradient-data group-hover:animate-glow-pulse">
+                  <Leaf className="h-6 w-6 text-white" />
+                </div>
+              </div>
+            </div>
+          </Card>
+
+          <Card variant="glass" interactive className="group">
+            <div className="p-6">
+              <div className="flex items-start justify-between">
+                <div>
+                  <p className="text-sm font-medium text-foreground/80">Cost Savings YTD</p>
+                  <h2 className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">$187K</h2>
+                  <p className="text-sm text-muted-foreground flex items-center mt-2">
+                    <ArrowUpRight className="mr-1 h-3 w-3 text-secondary" />
+                    +34% vs target
+                  </p>
+                </div>
+                <div className="p-3 rounded-lg bg-gradient-primary group-hover:animate-glow-pulse">
+                  <PiggyBank className="h-6 w-6 text-white" />
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
+
+        {/* Enhanced Document Upload & AI Analysis Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+          <Card variant="glass" className="p-6">
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-gradient-primary">
+                  <Upload className="h-5 w-5 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground">Contract Analysis</h3>
+              </div>
+              <Badge className="bg-gradient-primary text-white border-0 px-3 py-1 text-sm font-medium">AI-Powered</Badge>
+            </div>
+          
+            {/* Enhanced Drag & Drop Upload Zone */}
+            <div className="border-2 border-dashed border-primary/30 rounded-xl p-8 text-center hover:border-primary/50 transition-all duration-300 cursor-pointer group bg-gradient-to-br from-primary/5 to-secondary/5">
+              <div className="flex flex-col items-center space-y-4">
+                <div className="p-4 bg-gradient-primary rounded-full group-hover:scale-110 group-hover:shadow-glow transition-all duration-300">
+                  <Upload className="h-8 w-8 text-white" />
+                </div>
+                <div>
+                  <p className="text-lg font-medium text-foreground">Drop contracts here</p>
+                  <p className="text-sm text-muted-foreground">or click to browse files</p>
+                  <p className="text-xs text-muted-foreground mt-1">PDF, DOC, DOCX up to 10MB</p>
+                </div>
+                <Button variant="glass" className="mt-4">
+                  <FileText className="mr-2 h-4 w-4" />
+                  Browse Files
+                </Button>
+              </div>
+            </div>
 
           {/* Recent Uploads */}
           <div className="mt-6 space-y-3">
@@ -162,11 +188,15 @@ const Index = () => {
           </div>
         </Card>
 
-        <Card className="glass-card p-6">
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-xl font-semibold text-foreground">AI Insights</h3>
-            <Brain className="h-5 w-5 text-primary" />
-          </div>
+          <Card variant="glass" className="p-6">
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded-lg bg-gradient-secondary">
+                  <Brain className="h-5 w-5 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground">AI Insights</h3>
+              </div>
+            </div>
 
           <div className="space-y-4">
             {[
@@ -219,21 +249,26 @@ const Index = () => {
         </Card>
       </div>
 
-      {/* Property Comparison Tools */}
-      <Card className="glass-card p-6">
-        <div className="flex items-center justify-between mb-6">
-          <h3 className="text-xl font-semibold text-foreground">Property Comparison</h3>
-          <div className="flex gap-2">
-            <Button size="sm" variant="outline">
-              <BarChart3 className="h-4 w-4 mr-2" />
-              Compare
-            </Button>
-            <Button size="sm" variant="outline">
-              <Download className="h-4 w-4 mr-2" />
-              Export
-            </Button>
+        {/* Enhanced Property Comparison Tools */}
+        <Card variant="glass" className="p-6 mb-8">
+          <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center gap-3">
+              <div className="p-2 rounded-lg bg-gradient-data">
+                <BarChart3 className="h-5 w-5 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-foreground">Property Comparison</h3>
+            </div>
+            <div className="flex gap-3">
+              <Button variant="glass" size="sm">
+                <BarChart3 className="h-4 w-4 mr-2" />
+                Compare
+              </Button>
+              <Button variant="gradient" size="sm">
+                <Download className="h-4 w-4 mr-2" />
+                Export
+              </Button>
+            </div>
           </div>
-        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {[
@@ -290,9 +325,14 @@ const Index = () => {
         </div>
       </Card>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <Card className="glass-card p-6 lg:col-span-2">
-          <h3 className="text-xl font-semibold mb-6 text-foreground">Cost & Efficiency Trends</h3>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <Card variant="glass" className="p-6 lg:col-span-2">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-2 rounded-lg bg-gradient-primary">
+                <TrendingUp className="h-5 w-5 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-foreground">Cost & Efficiency Trends</h3>
+            </div>
           <div className="h-[320px] w-full">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={wasteMetrics}>
@@ -334,8 +374,13 @@ const Index = () => {
           </div>
         </Card>
 
-        <Card className="glass-card p-6">
-          <h3 className="text-xl font-semibold mb-6 text-foreground">Regional Benchmarking</h3>
+          <Card variant="glass" className="p-6">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-2 rounded-lg bg-gradient-secondary">
+                <MapPin className="h-5 w-5 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-foreground">Regional Benchmarking</h3>
+            </div>
           <div className="space-y-4">
             {regionalBenchmarks.map((region, i) => (
               <div key={i} className="p-4 rounded-xl bg-muted/30 backdrop-blur-sm border border-primary/10">
@@ -353,7 +398,8 @@ const Index = () => {
               </div>
             ))}
           </div>
-        </Card>
+          </Card>
+        </div>
       </div>
     </div>
   );
