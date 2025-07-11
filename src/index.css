@@ -10,16 +10,16 @@
     --card-foreground: 220 25% 15%;
     --popover: 210 30% 98%;
     --popover-foreground: 220 25% 15%;
-    --primary: 142 76% 36%;
+    --primary: 160 84% 39%;
     --primary-foreground: 210 40% 98%;
-    --primary-glow: 142 76% 46%;
-    --secondary: 210 40% 90%;
-    --secondary-foreground: 220 25% 25%;
+    --primary-glow: 160 84% 49%;
+    --secondary: 221 83% 60%;
+    --secondary-foreground: 210 40% 98%;
     --muted: 210 40% 95%;
     --muted-foreground: 220 15% 45%;
-    --accent: 45 93% 47%;
+    --accent: 160 70% 55%;
     --accent-foreground: 220 25% 15%;
-    --success: 142 76% 36%;
+    --success: 160 84% 39%;
     --success-foreground: 210 40% 98%;
     --warning: 45 93% 47%;
     --warning-foreground: 220 25% 15%;
@@ -27,18 +27,20 @@
     --destructive-foreground: 210 40% 98%;
     --border: 210 30% 88%;
     --input: 210 30% 88%;
-    --ring: 142 76% 36%;
+    --ring: 160 84% 39%;
     --radius: 1rem;
     
-    /* Glassmorphic gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-glow)) 100%);
+    /* Enhanced earth-inspired gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(160, 84%, 39%) 0%, hsl(160, 84%, 49%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(221, 83%, 60%) 0%, hsl(221, 83%, 70%) 100%);
     --gradient-glass: linear-gradient(135deg, hsla(210, 40%, 98%, 0.25) 0%, hsla(210, 40%, 98%, 0.1) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(160, 84%, 39%) 0%, hsl(221, 83%, 60%) 100%);
+    --gradient-earth: linear-gradient(135deg, hsl(160, 84%, 39%) 0%, hsl(160, 70%, 55%) 100%);
     
-    /* Glass effects */
-    --glass-bg: hsla(210, 40%, 98%, 0.1);
-    --glass-border: hsla(210, 30%, 88%, 0.2);
-    --glass-shadow: 0 8px 32px hsla(220, 25%, 15%, 0.1);
+    /* Enhanced glass effects with earth tones */
+    --glass-bg: hsla(160, 84%, 39%, 0.05);
+    --glass-border: hsla(160, 84%, 39%, 0.15);
+    --glass-shadow: 0 8px 32px hsla(160, 84%, 39%, 0.1);
     
     /* Animation variables */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -51,16 +53,16 @@
     --card-foreground: 210 40% 95%;
     --popover: 220 25% 12%;
     --popover-foreground: 210 40% 95%;
-    --primary: 142 76% 46%;
+    --primary: 160 84% 49%;
     --primary-foreground: 220 25% 10%;
-    --primary-glow: 142 76% 56%;
-    --secondary: 220 25% 18%;
-    --secondary-foreground: 210 40% 85%;
+    --primary-glow: 160 84% 59%;
+    --secondary: 221 83% 70%;
+    --secondary-foreground: 220 25% 10%;
     --muted: 220 25% 15%;
     --muted-foreground: 210 20% 65%;
-    --accent: 45 93% 57%;
+    --accent: 160 70% 65%;
     --accent-foreground: 220 25% 10%;
-    --success: 142 76% 46%;
+    --success: 160 84% 49%;
     --success-foreground: 220 25% 10%;
     --warning: 45 93% 57%;
     --warning-foreground: 220 25% 10%;
@@ -68,12 +70,12 @@
     --destructive-foreground: 220 25% 10%;
     --border: 220 25% 20%;
     --input: 220 25% 20%;
-    --ring: 142 76% 46%;
+    --ring: 160 84% 49%;
     
-    /* Dark mode glass effects */
-    --glass-bg: hsla(220, 25%, 10%, 0.4);
-    --glass-border: hsla(220, 25%, 20%, 0.3);
-    --glass-shadow: 0 8px 32px hsla(220, 25%, 5%, 0.3);
+    /* Dark mode glass effects with earth tones */
+    --glass-bg: hsla(160, 84%, 39%, 0.1);
+    --glass-border: hsla(160, 84%, 39%, 0.2);
+    --glass-shadow: 0 8px 32px hsla(160, 84%, 39%, 0.15);
   }
 }
 
@@ -86,7 +88,7 @@
   }
 }
 
-/* Enhanced Glass Components */
+/* Enhanced Glass Components with Earth Tones */
 .glass-card {
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
@@ -96,13 +98,13 @@
 }
 
 .glass-card:hover {
-  background: hsla(210, 40%, 98%, 0.15);
-  box-shadow: 0 12px 40px hsla(220, 25%, 15%, 0.15);
+  background: hsla(160, 84%, 39%, 0.08);
+  box-shadow: 0 12px 40px hsla(160, 84%, 39%, 0.15);
   transform: translateY(-2px);
 }
 
 .glass-nav {
-  background: hsla(210, 40%, 98%, 0.8);
+  background: hsla(160, 84%, 39%, 0.03);
   backdrop-filter: blur(24px);
   border-right: 1px solid var(--glass-border);
 }
@@ -115,9 +117,9 @@
 }
 
 .glass-button:hover {
-  background: hsla(210, 40%, 98%, 0.2);
-  border-color: hsl(var(--primary) / 0.3);
-  box-shadow: 0 4px 16px hsla(220, 25%, 15%, 0.1);
+  background: hsla(160, 84%, 39%, 0.1);
+  border-color: hsl(160, 84%, 39%, 0.3);
+  box-shadow: 0 4px 16px hsla(160, 84%, 39%, 0.2);
 }
 
 .gradient-text {
