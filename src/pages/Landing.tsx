@@ -73,9 +73,9 @@ export default function Landing() {
           {/* Chart Preview */}
           <div className="mb-6">
             <h3 className="text-md font-semibold text-foreground mb-3">Cost Optimization Forecast</h3>
-            <div className="h-40 bg-card border border-border rounded-lg p-4 relative">
+            <div className="h-52 bg-card border border-border rounded-lg p-2 relative">
               {/* Chart Labels */}
-              <div className="absolute top-2 right-2 space-y-1 text-xs">
+              <div className="absolute top-1 right-1 space-y-1 text-xs">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-0.5 bg-destructive"></div>
                   <span className="text-muted-foreground">Current Spend</span>
@@ -85,27 +85,37 @@ export default function Landing() {
                   <span className="text-muted-foreground">Waste Spend with WasteWise</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-2 bg-primary/30 rounded-sm"></div>
+                  <div className="w-3 h-2 bg-secondary/30 rounded-sm"></div>
                   <span className="text-muted-foreground">Savings</span>
                 </div>
               </div>
               
-              <svg className="w-full h-full" viewBox="0 0 400 120">
+              {/* Background grid for better visual structure */}
+              <svg className="absolute inset-2 w-full h-full opacity-10" viewBox="0 0 400 160">
+                <defs>
+                  <pattern id="grid" width="40" height="20" patternUnits="userSpaceOnUse">
+                    <path d="M 40 0 L 0 0 0 20" fill="none" stroke="hsl(var(--muted-foreground))" strokeWidth="0.5"/>
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+              </svg>
+              
+              <svg className="w-full h-full" viewBox="0 0 400 160">
                 <defs>
                   <linearGradient id="savings-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="hsl(var(--secondary))" stopOpacity="0.3" />
-                    <stop offset="100%" stopColor="hsl(var(--secondary))" stopOpacity="0.05" />
+                    <stop offset="0%" stopColor="hsl(var(--secondary))" stopOpacity="0.4" />
+                    <stop offset="100%" stopColor="hsl(var(--secondary))" stopOpacity="0.1" />
                   </linearGradient>
                 </defs>
                 
-                {/* Savings area (green shaded) */}
-                <polygon fill="url(#savings-gradient)" points="0,70 50,65 100,60 150,55 200,50 250,45 300,40 350,35 400,30 400,90 350,85 300,80 250,75 200,70 150,65 100,60 50,55 0,50" />
+                {/* Savings area (green shaded) - expanded to fill more space */}
+                <polygon fill="url(#savings-gradient)" points="10,90 60,85 110,80 160,75 210,70 260,65 310,60 360,55 390,50 390,130 360,125 310,120 260,115 210,110 160,105 110,100 60,95 10,90" />
                 
-                {/* Current spend line (red) */}
-                <polyline fill="none" stroke="hsl(var(--destructive))" strokeWidth="3" points="0,70 50,65 100,60 150,55 200,50 250,45 300,40 350,35 400,30" />
+                {/* Current spend line (red) - extended and repositioned */}
+                <polyline fill="none" stroke="hsl(var(--destructive))" strokeWidth="3" points="10,90 60,85 110,80 160,75 210,70 260,65 310,60 360,55 390,50" />
                 
-                {/* Waste spend with WasteWise line (blue dotted) */}
-                <polyline fill="none" stroke="hsl(var(--primary))" strokeWidth="3" strokeDasharray="6,3" points="0,50 50,55 100,60 150,65 200,70 250,75 300,80 350,85 400,90" />
+                {/* Waste spend with WasteWise line (blue dotted) - extended and repositioned */}
+                <polyline fill="none" stroke="hsl(var(--primary))" strokeWidth="3" strokeDasharray="6,3" points="10,90 60,95 110,100 160,105 210,110 260,115 310,120 360,125 390,130" />
               </svg>
             </div>
           </div>
