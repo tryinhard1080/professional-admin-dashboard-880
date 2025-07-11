@@ -3,17 +3,20 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  variant?: 'default' | 'glass' | 'gradient' | 'glow'
+  variant?: 'default' | 'glass' | 'gradient' | 'glow' | 'premium' | 'floating'
   interactive?: boolean
+  loading?: boolean
 }
 
 const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ className, variant = 'default', interactive = false, ...props }, ref) => {
+  ({ className, variant = 'default', interactive = false, loading = false, ...props }, ref) => {
     const variants = {
-      default: "rounded-lg border bg-card text-card-foreground shadow-sm",
-      glass: "glass-card rounded-xl border border-white/20 bg-white/10 text-card-foreground backdrop-blur-md",
-      gradient: "rounded-xl bg-gradient-primary text-white shadow-glow",
-      glow: "rounded-lg border bg-card text-card-foreground shadow-glow animate-glow-pulse"
+      default: "rounded-lg border bg-card text-card-foreground shadow-sm transition-all duration-300",
+      glass: "glass-card rounded-xl border border-white/20 bg-white/10 text-card-foreground backdrop-blur-md hover-lift",
+      gradient: "rounded-xl bg-gradient-primary text-white shadow-glow hover-glow transition-all duration-300",
+      glow: "rounded-lg border bg-card text-card-foreground shadow-glow animate-glow-pulse hover-scale",
+      premium: "rounded-xl bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 border border-primary/20 backdrop-blur-sm hover-lift transition-all duration-500",
+      floating: "rounded-xl bg-card border border-border shadow-depth hover:shadow-float transition-all duration-300 hover:-translate-y-2"
     }
     
     return (
@@ -21,7 +24,8 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         ref={ref}
         className={cn(
           variants[variant],
-          interactive && "hover:scale-[1.02] transition-transform duration-300 cursor-pointer",
+          interactive && "card-interactive hover-scale cursor-pointer",
+          loading && "skeleton",
           className
         )}
         {...props}

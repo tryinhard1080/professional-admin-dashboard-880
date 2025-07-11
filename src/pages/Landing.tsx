@@ -27,7 +27,7 @@ export default function Landing() {
               </Button>
             </div>
           </>}>
-        <div className="h-full w-full bg-white/90 backdrop-blur-sm rounded-2xl p-6 overflow-hidden">
+        <div className="h-full w-full bg-white/90 backdrop-blur-sm rounded-2xl p-6 overflow-hidden hover-lift transition-all duration-500 border border-white/20 shadow-elegant">
           {/* Dashboard Preview Header */}
           <div className="flex items-center justify-between mb-6 pb-4 border-b border-border">
             <div className="flex items-center space-x-3">
@@ -45,28 +45,34 @@ export default function Landing() {
             </div>
           </div>
 
-          {/* Key Metrics Grid */}
+          {/* Enhanced Key Metrics Grid */}
           <div className="grid grid-cols-3 gap-4 mb-6">
-            <div className="bg-primary/10 p-4 rounded-lg">
+            <div className="bg-primary/10 p-4 rounded-lg hover-scale transition-all duration-300 border border-primary/20">
               <div className="flex items-center gap-2 mb-2">
-                <DollarSign className="w-4 h-4 text-primary" />
-                <span className="text-xs text-muted-foreground">Annual Savings</span>
+                <div className="p-1 rounded bg-primary/20">
+                  <DollarSign className="w-4 h-4 text-primary" />
+                </div>
+                <span className="text-xs font-medium text-muted-foreground">Annual Savings</span>
               </div>
-              <div className="text-2xl font-bold text-primary">$12K</div>
+              <div className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">$12K</div>
             </div>
-            <div className="bg-destructive/10 p-4 rounded-lg">
+            <div className="bg-destructive/10 p-4 rounded-lg hover-scale transition-all duration-300 border border-destructive/20">
               <div className="flex items-center gap-2 mb-2">
-                <BarChart className="w-4 h-4 text-destructive" />
-                <span className="text-xs text-muted-foreground">Current Costs</span>
+                <div className="p-1 rounded bg-destructive/20">
+                  <BarChart className="w-4 h-4 text-destructive" />
+                </div>
+                <span className="text-xs font-medium text-muted-foreground">Current Costs</span>
               </div>
               <div className="text-2xl font-bold text-destructive">$60K</div>
             </div>
-            <div className="bg-secondary/10 p-4 rounded-lg">
+            <div className="bg-secondary/10 p-4 rounded-lg hover-scale transition-all duration-300 border border-secondary/20">
               <div className="flex items-center gap-2 mb-2">
-                <DollarSign className="w-4 h-4 text-secondary" />
-                <span className="text-xs text-muted-foreground">Savings</span>
+                <div className="p-1 rounded bg-secondary/20">
+                  <DollarSign className="w-4 h-4 text-secondary" />
+                </div>
+                <span className="text-xs font-medium text-muted-foreground">Savings</span>
               </div>
-              <div className="text-2xl font-bold text-secondary">20%</div>
+              <div className="text-2xl font-bold bg-gradient-secondary bg-clip-text text-transparent">20%</div>
             </div>
           </div>
 
@@ -110,39 +116,37 @@ export default function Landing() {
             </div>
           </div>
 
-          {/* Optimization Opportunities */}
-          <div className="space-y-3">
-            <div>
-              <div className="flex justify-between text-sm mb-1">
-                <span className="text-foreground">Contract Optimization</span>
-                <span className="text-primary font-medium">$4K/year</span>
+          {/* Enhanced Optimization Opportunities */}
+          <div className="space-y-4">
+            <div className="space-y-3">
+              <div className="p-3 rounded-lg bg-gradient-to-r from-primary/5 to-transparent border border-primary/10 hover-scale transition-all duration-300">
+                <div className="flex justify-between text-sm mb-2">
+                  <span className="font-medium text-foreground">Contract Optimization</span>
+                  <span className="text-primary font-bold">$4K/year</span>
+                </div>
+                <div className="w-full bg-muted rounded-full h-2">
+                  <div className="bg-gradient-primary h-2 rounded-full animate-glow-pulse transition-all duration-1000" style={{width: '33%'}}></div>
+                </div>
               </div>
-              <div className="w-full bg-secondary rounded-full h-2">
-                <div className="bg-primary h-2 rounded-full animate-pulse" style={{
-                width: '33%'
-              }}></div>
+              
+              <div className="p-3 rounded-lg bg-gradient-to-r from-secondary/5 to-transparent border border-secondary/10 hover-scale transition-all duration-300">
+                <div className="flex justify-between text-sm mb-2">
+                  <span className="font-medium text-foreground">Route Optimization</span>
+                  <span className="text-secondary font-bold">$6K/year</span>
+                </div>
+                <div className="w-full bg-muted rounded-full h-2">
+                  <div className="bg-gradient-secondary h-2 rounded-full animate-glow-pulse transition-all duration-1000" style={{width: '50%'}}></div>
+                </div>
               </div>
-            </div>
-            <div>
-              <div className="flex justify-between text-sm mb-1">
-                <span className="text-foreground">Route Optimization</span>
-                <span className="text-accent-foreground font-medium">$6K/year</span>
-              </div>
-              <div className="w-full bg-secondary rounded-full h-2">
-                <div className="bg-accent h-2 rounded-full animate-pulse" style={{
-                width: '50%'
-              }}></div>
-              </div>
-            </div>
-            <div>
-              <div className="flex justify-between text-sm mb-1">
-                <span className="text-foreground">Container Right-sizing</span>
-                <span className="text-primary font-medium">$2K/year</span>
-              </div>
-              <div className="w-full bg-secondary rounded-full h-2">
-                <div className="bg-primary h-2 rounded-full animate-pulse" style={{
-                width: '17%'
-              }}></div>
+              
+              <div className="p-3 rounded-lg bg-gradient-to-r from-accent/5 to-transparent border border-accent/10 hover-scale transition-all duration-300">
+                <div className="flex justify-between text-sm mb-2">
+                  <span className="font-medium text-foreground">Container Right-sizing</span>
+                  <span className="text-accent font-bold">$2K/year</span>
+                </div>
+                <div className="w-full bg-muted rounded-full h-2">
+                  <div className="bg-gradient-to-r from-accent to-primary h-2 rounded-full animate-glow-pulse transition-all duration-1000" style={{width: '17%'}}></div>
+                </div>
               </div>
             </div>
           </div>
