@@ -59,12 +59,12 @@ export default function Landing() {
               </div>
               <div className="text-2xl font-bold text-destructive">$60K</div>
             </div>
-            <div className="bg-accent/20 p-4 rounded-lg">
+            <div className="bg-secondary/10 p-4 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <DollarSign className="w-4 h-4 text-accent-foreground" />
+                <DollarSign className="w-4 h-4 text-secondary" />
                 <span className="text-xs text-muted-foreground">Savings</span>
               </div>
-              <div className="text-2xl font-bold text-accent-foreground">25%</div>
+              <div className="text-2xl font-bold text-secondary">20%</div>
             </div>
           </div>
 
