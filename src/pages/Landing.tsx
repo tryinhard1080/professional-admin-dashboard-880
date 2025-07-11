@@ -71,11 +71,11 @@ export default function Landing() {
           </div>
 
           {/* Chart Preview */}
-          <div className="mb-6">
+          <div className="mb-4">
             <h3 className="text-md font-semibold text-foreground mb-3">Cost Optimization Forecast</h3>
-            <div className="h-36 bg-card border border-border rounded-lg p-4 relative">
+            <div className="h-28 bg-card border border-border rounded-lg p-2 relative">
               {/* Chart Labels */}
-              <div className="absolute top-2 right-2 space-y-1 text-xs">
+              <div className="absolute top-1 right-1 space-y-1 text-xs">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-0.5 bg-destructive"></div>
                   <span className="text-muted-foreground">Current Spend</span>
