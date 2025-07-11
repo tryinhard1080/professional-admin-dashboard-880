@@ -1,7 +1,11 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Recycle, TrendingDown, TrendingUp, Truck, MapPin, DollarSign, ArrowUpRight, ArrowDownRight, Upload, FileText, Brain, BarChart3, Download, Leaf, PiggyBank, Bell, Settings } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Recycle, TrendingDown, TrendingUp, Truck, MapPin, DollarSign, ArrowUpRight, ArrowDownRight, Upload, FileText, Brain, BarChart3, Download, Leaf, PiggyBank, Bell, Settings, FileCheck, FileSpreadsheet, Image, Clock, CheckCircle, AlertCircle, Loader2, X, RotateCcw } from "lucide-react";
+import { useState, useRef } from "react";
 import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, Tooltip, AreaChart, Area } from "recharts";
 
 const wasteMetrics = [
@@ -21,6 +25,185 @@ const regionalBenchmarks = [
 ];
 
 const Index = () => {
+  const [uploadedFiles, setUploadedFiles] = useState<any[]>([]);
+  const [unitCount, setUnitCount] = useState("");
+  const [propertyType, setPropertyType] = useState("");
+  const [analysisType, setAnalysisType] = useState("");
+  const [isDragging, setIsDragging] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState<Record<string, number>>({});
+  const [processingFiles, setProcessingFiles] = useState<Record<string, string>>({});
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const analysisOptions = [
+    {
+      id: "contract-review",
+      title: "Contract Review",
+      description: "Comprehensive contract analysis for cost optimization",
+      estimatedTime: "2-4 minutes",
+      icon: FileCheck
+    },
+    {
+      id: "contract-comparison", 
+      title: "Contract Comparison",
+      description: "Side-by-side comparison with market standards",
+      estimatedTime: "3-5 minutes",
+      icon: BarChart3
+    },
+    {
+      id: "invoice-performance",
+      title: "Invoice Performance Review", 
+      description: "Historical invoice analysis and trends",
+      estimatedTime: "1-3 minutes",
+      icon: TrendingUp
+    }
+  ];
+
+  const getFileIcon = (fileName: string) => {
+    const ext = fileName.split('.').pop()?.toLowerCase();
+    if (['pdf'].includes(ext || '')) return FileText;
+    if (['xlsx', 'xls', 'csv'].includes(ext || '')) return FileSpreadsheet;
+    if (['jpg', 'jpeg', 'png', 'webp'].includes(ext || '')) return Image;
+    return FileText;
+  };
+
+  const getFileTypeColor = (fileName: string) => {
+    const ext = fileName.split('.').pop()?.toLowerCase();
+    if (['pdf'].includes(ext || '')) return 'text-destructive';
+    if (['xlsx', 'xls', 'csv'].includes(ext || '')) return 'text-secondary';
+    if (['jpg', 'jpeg', 'png', 'webp'].includes(ext || '')) return 'text-primary';
+    return 'text-muted-foreground';
+  };
+
+  const validateFile = (file: File) => {
+    const allowedTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel', 'text/csv', 'image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+    const maxSize = file.type.startsWith('image/') ? 10 * 1024 * 1024 : 25 * 1024 * 1024; // 10MB for images, 25MB for docs
+    
+    if (!allowedTypes.includes(file.type)) {
+      return 'Unsupported file type. Please upload PDF, Excel, CSV, or image files.';
+    }
+    if (file.size > maxSize) {
+      return `File too large. Maximum size is ${file.type.startsWith('image/') ? '10MB' : '25MB'}.`;
+    }
+    return null;
+  };
+
+  const handleFileUpload = (files: FileList | File[]) => {
+    const fileArray = Array.from(files);
+    const validFiles: any[] = [];
+    
+    fileArray.forEach(file => {
+      const error = validateFile(file);
+      if (!error) {
+        const fileObj = {
+          id: Math.random().toString(36).substr(2, 9),
+          file,
+          name: file.name,
+          size: file.size,
+          type: file.type,
+          status: 'ready',
+          uploadedAt: new Date(),
+          error: null
+        };
+        validFiles.push(fileObj);
+      }
+    });
+    
+    setUploadedFiles(prev => [...prev, ...validFiles]);
+  };
+
+  const processFiles = async () => {
+    if (!unitCount || !propertyType || !analysisType || uploadedFiles.length === 0) {
+      return;
+    }
+
+    const readyFiles = uploadedFiles.filter(f => f.status === 'ready');
+    
+    for (const file of readyFiles) {
+      // Start upload
+      setUploadedFiles(prev => prev.map(f => 
+        f.id === file.id ? { ...f, status: 'uploading' } : f
+      ));
+      
+      // Simulate upload progress
+      let progress = 0;
+      const uploadInterval = setInterval(() => {
+        progress += Math.random() * 30;
+        if (progress >= 100) {
+          progress = 100;
+          clearInterval(uploadInterval);
+          
+          // Move to processing
+          setUploadedFiles(prev => prev.map(f => 
+            f.id === file.id ? { ...f, status: 'processing' } : f
+          ));
+          setProcessingFiles(prev => ({ ...prev, [file.id]: 'Analyzing document structure...' }));
+          
+          // Simulate processing stages
+          setTimeout(() => {
+            setProcessingFiles(prev => ({ ...prev, [file.id]: 'Extracting contract terms...' }));
+          }, 2000);
+          
+          setTimeout(() => {
+            setProcessingFiles(prev => ({ ...prev, [file.id]: 'Comparing with market data...' }));
+          }, 4000);
+          
+          setTimeout(() => {
+            setProcessingFiles(prev => ({ ...prev, [file.id]: 'Generating recommendations...' }));
+          }, 6000);
+          
+          setTimeout(() => {
+            setUploadedFiles(prev => prev.map(f => 
+              f.id === file.id ? { 
+                ...f, 
+                status: 'completed', 
+                savings: `$${(Math.random() * 20000 + 5000).toFixed(0)}`,
+                confidence: Math.floor(Math.random() * 20 + 75)
+              } : f
+            ));
+            setProcessingFiles(prev => {
+              const { [file.id]: removed, ...rest } = prev;
+              return rest;
+            });
+          }, 8000);
+        }
+        setUploadProgress(prev => ({ ...prev, [file.id]: progress }));
+      }, 200);
+    }
+  };
+
+  const removeFile = (fileId: string) => {
+    setUploadedFiles(prev => prev.filter(f => f.id !== fileId));
+    setUploadProgress(prev => {
+      const { [fileId]: removed, ...rest } = prev;
+      return rest;
+    });
+  };
+
+  const retryFile = (fileId: string) => {
+    setUploadedFiles(prev => prev.map(f => 
+      f.id === fileId ? { ...f, status: 'ready', error: null } : f
+    ));
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+    const files = e.dataTransfer.files;
+    if (files.length > 0) {
+      handleFileUpload(files);
+    }
+  };
+
   return (
     <div className="min-h-screen animate-fade-in">
       <div className="container mx-auto px-4 py-8 max-w-7xl">
@@ -125,70 +308,270 @@ const Index = () => {
           </Card>
         </div>
 
-        {/* Enhanced Document Upload & AI Analysis Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+        {/* Specialized Upload Workflow for Waste Contracts and Invoices */}
+        <div className="grid grid-cols-1 gap-8 mb-8">
           <Card variant="glass" className="p-6">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-3">
                 <div className="p-2 rounded-lg bg-gradient-primary">
                   <Upload className="h-5 w-5 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground">Contract Analysis</h3>
+                <h3 className="text-xl font-semibold text-foreground">Specialized Document Upload</h3>
               </div>
               <Badge className="bg-gradient-primary text-white border-0 px-3 py-1 text-sm font-medium">AI-Powered</Badge>
             </div>
-          
-            {/* Enhanced Drag & Drop Upload Zone */}
-            <div className="border-2 border-dashed border-primary/30 rounded-xl p-8 text-center hover:border-primary/50 transition-all duration-300 cursor-pointer group bg-gradient-to-br from-primary/5 to-secondary/5">
-              <div className="flex flex-col items-center space-y-4">
-                <div className="p-4 bg-gradient-primary rounded-full group-hover:scale-110 group-hover:shadow-glow transition-all duration-300">
-                  <Upload className="h-8 w-8 text-white" />
-                </div>
-                <div>
-                  <p className="text-lg font-medium text-foreground">Drop contracts here</p>
-                  <p className="text-sm text-muted-foreground">or click to browse files</p>
-                  <p className="text-xs text-muted-foreground mt-1">PDF, DOC, DOCX up to 10MB</p>
-                </div>
-                <Button variant="glass" className="mt-4">
-                  <FileText className="mr-2 h-4 w-4" />
-                  Browse Files
-                </Button>
-              </div>
-            </div>
 
-          {/* Recent Uploads */}
-          <div className="mt-6 space-y-3">
-            <h4 className="font-medium text-foreground">Recent Analysis</h4>
-            {[
-              { name: "Downtown_Contract_2024.pdf", status: "completed", savings: "$12,500" },
-              { name: "Industrial_Agreement.pdf", status: "processing", savings: "..." },
-              { name: "Residential_Terms.docx", status: "completed", savings: "$8,200" }
-            ].map((file, i) => (
-              <div key={i} className="flex items-center justify-between p-3 rounded-lg bg-muted/20 backdrop-blur-sm">
-                <div className="flex items-center space-x-3">
-                  <FileText className="h-4 w-4 text-primary" />
-                  <div>
-                    <p className="text-sm font-medium text-foreground">{file.name}</p>
-                    <div className="flex items-center gap-2">
-                      <Badge className={file.status === 'completed' ? 'bg-success/10 text-success' : 'bg-warning/10 text-warning'}>
-                        {file.status}
-                      </Badge>
-                      {file.status === 'processing' && (
-                        <div className="w-2 h-2 bg-warning rounded-full animate-pulse"></div>
-                      )}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {/* File Upload Zone */}
+              <div className="lg:col-span-2 space-y-6">
+                {/* Enhanced Drag & Drop Upload Zone */}
+                <div 
+                  className={`border-2 border-dashed rounded-xl p-6 text-center transition-all duration-300 cursor-pointer group ${
+                    isDragging 
+                      ? 'border-primary bg-primary/10' 
+                      : 'border-primary/30 hover:border-primary/50 bg-gradient-to-br from-primary/5 to-secondary/5'
+                  }`}
+                  onDragOver={handleDragOver}
+                  onDragLeave={handleDragLeave}
+                  onDrop={handleDrop}
+                  onClick={() => fileInputRef.current?.click()}
+                >
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    multiple
+                    accept=".pdf,.xlsx,.xls,.csv,.jpg,.jpeg,.png,.webp"
+                    onChange={(e) => e.target.files && handleFileUpload(e.target.files)}
+                    className="hidden"
+                  />
+                  <div className="flex flex-col items-center space-y-3">
+                    <div className="p-3 bg-gradient-primary rounded-full group-hover:scale-110 group-hover:shadow-glow transition-all duration-300">
+                      <Upload className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <p className="text-lg font-medium text-foreground">Drop files here or click to browse</p>
+                      <p className="text-sm text-muted-foreground">Support for PDF contracts, Excel reports, images</p>
+                      <div className="flex items-center justify-center gap-4 mt-2 text-xs text-muted-foreground">
+                        <span className="flex items-center gap-1">
+                          <FileText className="h-3 w-3 text-destructive" />
+                          PDF (25MB)
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <FileSpreadsheet className="h-3 w-3 text-secondary" />
+                          Excel (25MB)
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Image className="h-3 w-3 text-primary" />
+                          Images (10MB)
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div className="text-right">
-                  <p className="text-sm font-bold text-success">{file.savings}</p>
-                  <p className="text-xs text-muted-foreground">potential savings</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Card>
 
-          <Card variant="glass" className="p-6">
+                {/* Property Details Form */}
+                <Card variant="glass" className="p-4">
+                  <h4 className="font-semibold text-foreground mb-4">Property Details</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="unitCount" className="text-sm font-medium">Unit Count *</Label>
+                      <Input
+                        id="unitCount"
+                        type="number"
+                        placeholder="Enter number of units"
+                        value={unitCount}
+                        onChange={(e) => setUnitCount(e.target.value)}
+                        min="1"
+                        max="10000"
+                        className="glass-input"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="propertyType" className="text-sm font-medium">Property Type *</Label>
+                      <Select value={propertyType} onValueChange={setPropertyType}>
+                        <SelectTrigger className="glass-input">
+                          <SelectValue placeholder="Select property type" />
+                        </SelectTrigger>
+                        <SelectContent className="glass-content">
+                          <SelectItem value="garden-style">Garden Style</SelectItem>
+                          <SelectItem value="mid-rise">Mid-Rise (4-8 floors)</SelectItem>
+                          <SelectItem value="hi-rise">Hi-Rise (9+ floors)</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+                </Card>
+
+                {/* Analysis Type Selector */}
+                <Card variant="glass" className="p-4">
+                  <h4 className="font-semibold text-foreground mb-4">Analysis Type *</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    {analysisOptions.map((option) => {
+                      const IconComponent = option.icon;
+                      return (
+                        <div
+                          key={option.id}
+                          className={`p-3 rounded-lg border-2 cursor-pointer transition-all duration-300 ${
+                            analysisType === option.id
+                              ? 'border-primary bg-primary/10'
+                              : 'border-muted hover:border-primary/50 bg-muted/10'
+                          }`}
+                          onClick={() => setAnalysisType(option.id)}
+                        >
+                          <div className="flex items-start gap-3">
+                            <div className={`p-2 rounded-lg ${
+                              analysisType === option.id ? 'bg-gradient-primary' : 'bg-muted'
+                            }`}>
+                              <IconComponent className={`h-4 w-4 ${
+                                analysisType === option.id ? 'text-white' : 'text-muted-foreground'
+                              }`} />
+                            </div>
+                            <div className="flex-1">
+                              <h5 className="font-medium text-sm text-foreground">{option.title}</h5>
+                              <p className="text-xs text-muted-foreground mt-1">{option.description}</p>
+                              <div className="flex items-center gap-1 mt-2">
+                                <Clock className="h-3 w-3 text-muted-foreground" />
+                                <span className="text-xs text-muted-foreground">{option.estimatedTime}</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </Card>
+
+                {/* Process Button */}
+                <Button
+                  onClick={processFiles}
+                  disabled={!unitCount || !propertyType || !analysisType || uploadedFiles.filter(f => f.status === 'ready').length === 0}
+                  className="w-full bg-gradient-primary hover:shadow-glow transition-all duration-300"
+                  size="lg"
+                >
+                  <Brain className="mr-2 h-5 w-5" />
+                  Start Analysis ({uploadedFiles.filter(f => f.status === 'ready').length} files)
+                </Button>
+              </div>
+
+              {/* Recent Uploads Dashboard */}
+              <div className="space-y-4">
+                <h4 className="font-semibold text-foreground">Upload Status</h4>
+                
+                {uploadedFiles.length === 0 ? (
+                  <div className="text-center p-6 text-muted-foreground">
+                    <FileText className="h-8 w-8 mx-auto mb-2 opacity-50" />
+                    <p className="text-sm">No files uploaded yet</p>
+                  </div>
+                ) : (
+                  <div className="space-y-3 max-h-[500px] overflow-y-auto">
+                    {uploadedFiles.map((file) => {
+                      const FileIcon = getFileIcon(file.name);
+                      const progress = uploadProgress[file.id] || 0;
+                      const processingStage = processingFiles[file.id];
+                      
+                      return (
+                        <Card key={file.id} variant="glass" className="p-3">
+                          <div className="flex items-start gap-3">
+                            <div className={`p-2 rounded-lg bg-muted/20`}>
+                              <FileIcon className={`h-4 w-4 ${getFileTypeColor(file.name)}`} />
+                            </div>
+                            
+                            <div className="flex-1 min-w-0">
+                              <p className="text-sm font-medium text-foreground truncate">{file.name}</p>
+                              <p className="text-xs text-muted-foreground">{(file.size / 1024 / 1024).toFixed(1)} MB</p>
+                              
+                              {/* Status and Progress */}
+                              <div className="mt-2">
+                                {file.status === 'ready' && (
+                                  <Badge className="bg-muted/20 text-muted-foreground">Ready</Badge>
+                                )}
+                                
+                                {file.status === 'uploading' && (
+                                  <div className="space-y-2">
+                                    <div className="flex items-center gap-2">
+                                      <Loader2 className="h-3 w-3 animate-spin text-primary" />
+                                      <span className="text-xs text-primary">Uploading... {Math.round(progress)}%</span>
+                                    </div>
+                                    <div className="w-full bg-muted rounded-full h-1">
+                                      <div 
+                                        className="bg-gradient-primary h-1 rounded-full transition-all duration-300"
+                                        style={{ width: `${progress}%` }}
+                                      />
+                                    </div>
+                                  </div>
+                                )}
+                                
+                                {file.status === 'processing' && (
+                                  <div className="space-y-2">
+                                    <div className="flex items-center gap-2">
+                                      <Loader2 className="h-3 w-3 animate-spin text-secondary" />
+                                      <span className="text-xs text-secondary">Processing...</span>
+                                    </div>
+                                    {processingStage && (
+                                      <p className="text-xs text-muted-foreground">{processingStage}</p>
+                                    )}
+                                    <div className="w-full bg-muted rounded-full h-1">
+                                      <div className="bg-gradient-secondary h-1 rounded-full animate-pulse" style={{ width: '60%' }} />
+                                    </div>
+                                  </div>
+                                )}
+                                
+                                {file.status === 'completed' && (
+                                  <div className="space-y-2">
+                                    <div className="flex items-center gap-2">
+                                      <CheckCircle className="h-3 w-3 text-success" />
+                                      <Badge className="bg-success/10 text-success">Completed</Badge>
+                                    </div>
+                                    <div className="text-xs">
+                                      <p className="font-bold text-success">{file.savings} potential savings</p>
+                                      <p className="text-muted-foreground">{file.confidence}% confidence</p>
+                                    </div>
+                                  </div>
+                                )}
+                                
+                                {file.status === 'failed' && (
+                                  <div className="space-y-2">
+                                    <div className="flex items-center gap-2">
+                                      <AlertCircle className="h-3 w-3 text-destructive" />
+                                      <Badge className="bg-destructive/10 text-destructive">Failed</Badge>
+                                    </div>
+                                    <Button
+                                      size="sm"
+                                      variant="outline"
+                                      onClick={() => retryFile(file.id)}
+                                      className="text-xs"
+                                    >
+                                      <RotateCcw className="h-3 w-3 mr-1" />
+                                      Retry
+                                    </Button>
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+                            
+                            <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => removeFile(file.id)}
+                              className="opacity-60 hover:opacity-100"
+                            >
+                              <X className="h-3 w-3" />
+                            </Button>
+                          </div>
+                        </Card>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            </div>
+          </Card>
+        </div>
+
+        {/* AI Insights Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+
+          <Card variant="glass" className="p-6 lg:col-span-2">
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-3">
                 <div className="p-2 rounded-lg bg-gradient-secondary">
