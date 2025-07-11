@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
 
 const menuItems = [
-  { icon: Home, label: "Overview", path: "/" },
+  { icon: Home, label: "Dashboard", path: "/dashboard" },
   { icon: BarChart3, label: "Analytics", path: "/analytics" },
   { icon: Recycle, label: "Waste Tracking", path: "/transactions" },
   { icon: MapPin, label: "Properties", path: "/notifications" },
