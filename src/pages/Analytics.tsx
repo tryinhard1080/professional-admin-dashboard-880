@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
-import { BarChart, Bar, LineChart, Line, ResponsiveContainer, XAxis, YAxis, Tooltip, PieChart, Pie, Cell } from "recharts";
-import { TrendingUp, Recycle, Truck, DollarSign, Target, AlertTriangle } from "lucide-react";
+import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, Tooltip, PieChart, Pie, Cell } from "recharts";
+import { TrendingUp, Recycle, DollarSign, Target } from "lucide-react";
 
 const efficiencyData = [
   { name: "Jan", efficiency: 76, cost: 15000, routes: 45 },
@@ -18,12 +18,6 @@ const wasteTypeData = [
   { name: "Hazardous", value: 12, color: "#ef4444" },
 ];
 
-const routeOptimization = [
-  { name: "Route A", before: 120, after: 85, savings: 29 },
-  { name: "Route B", before: 95, after: 72, savings: 24 },
-  { name: "Route C", before: 140, after: 98, savings: 30 },
-  { name: "Route D", before: 110, after: 80, savings: 27 },
-];
 
 const Analytics = () => {
   return (
@@ -36,7 +30,7 @@ const Analytics = () => {
       {/* Enhanced KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 animate-slide-up">
         {[
-          { title: "Route Efficiency", value: "91%", change: "+5%", icon: Truck, color: "from-primary to-primary-glow" },
+          { title: "Route Efficiency", value: "91%", change: "+5%", icon: TrendingUp, color: "from-primary to-primary-glow" },
           { title: "Cost Reduction", value: "$31.5K", change: "+18%", icon: DollarSign, color: "from-success to-primary-glow" },
           { title: "Diversion Rate", value: "78.4%", change: "+3.2%", icon: Recycle, color: "from-warning to-accent" },
           { title: "Target Achievement", value: "94%", change: "+7%", icon: Target, color: "from-accent to-warning" },
@@ -126,39 +120,6 @@ const Analytics = () => {
         </Card>
       </div>
 
-      {/* Enhanced Route Optimization */}
-      <Card variant="glass" className="p-6 hover-lift animate-scale-in">
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-lg bg-gradient-data">
-              <Truck className="h-5 w-5 text-white" />
-            </div>
-            <h3 className="text-xl font-semibold gradient-text-data">Route Optimization Results</h3>
-          </div>
-          <div className="flex items-center gap-2 text-sm text-success font-medium">
-            <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
-            Live Data
-          </div>
-        </div>
-        <div className="h-[300px] w-full">
-          <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={routeOptimization}>
-              <XAxis dataKey="name" stroke="hsl(var(--muted-foreground))" fontSize={12} />
-              <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} />
-              <Tooltip 
-                contentStyle={{
-                  backgroundColor: "hsl(var(--card))",
-                  border: "1px solid hsl(var(--border))",
-                  borderRadius: "12px",
-                  backdropFilter: "blur(8px)"
-                }}
-              />
-              <Bar dataKey="before" fill="hsl(var(--muted))" name="Before (min)" />
-              <Bar dataKey="after" fill="hsl(var(--primary))" name="After (min)" />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-      </Card>
     </div>
   );
 };
