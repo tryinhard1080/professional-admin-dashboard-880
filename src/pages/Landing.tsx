@@ -1,7 +1,9 @@
+
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Recycle, BarChart, DollarSign } from "lucide-react";
+
 export default function Landing() {
   return <div className="min-h-screen bg-gradient-primary overflow-hidden">
       <ContainerScroll titleComponent={<>
@@ -72,21 +74,37 @@ export default function Landing() {
           <div className="mb-6">
             <h3 className="text-md font-semibold text-foreground mb-3">Cost Optimization Forecast</h3>
             <div className="h-40 bg-card border border-border rounded-lg p-4 relative">
+              {/* Chart Labels */}
+              <div className="absolute top-2 right-2 space-y-1 text-xs">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-0.5 bg-destructive"></div>
+                  <span className="text-muted-foreground">Current Spend</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-0.5 bg-primary border-dashed border-t-2 border-primary bg-transparent"></div>
+                  <span className="text-muted-foreground">Waste Spend with WasteWise</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-2 bg-primary/30 rounded-sm"></div>
+                  <span className="text-muted-foreground">Savings</span>
+                </div>
+              </div>
+              
               <svg className="w-full h-full" viewBox="0 0 400 120">
                 <defs>
                   <linearGradient id="savings-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.3" />
-                    <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0.05" />
+                    <stop offset="0%" stopColor="hsl(var(--secondary))" stopOpacity="0.3" />
+                    <stop offset="100%" stopColor="hsl(var(--secondary))" stopOpacity="0.05" />
                   </linearGradient>
                 </defs>
                 
-                {/* Savings area */}
+                {/* Savings area (green shaded) */}
                 <polygon fill="url(#savings-gradient)" points="0,70 50,65 100,60 150,55 200,50 250,45 300,40 350,35 400,30 400,90 350,85 300,80 250,75 200,70 150,65 100,60 50,55 0,50" />
                 
-                {/* Current trend line */}
+                {/* Current spend line (red) */}
                 <polyline fill="none" stroke="hsl(var(--destructive))" strokeWidth="3" points="0,70 50,65 100,60 150,55 200,50 250,45 300,40 350,35 400,30" />
                 
-                {/* Optimized trend line */}
+                {/* Waste spend with WasteWise line (blue dotted) */}
                 <polyline fill="none" stroke="hsl(var(--primary))" strokeWidth="3" strokeDasharray="6,3" points="0,50 50,55 100,60 150,65 200,70 250,75 300,80 350,85 400,90" />
               </svg>
             </div>
