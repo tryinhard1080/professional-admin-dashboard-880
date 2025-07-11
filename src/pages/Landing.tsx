@@ -9,10 +9,10 @@ export default function Landing() {
       <ContainerScroll
         titleComponent={
           <>
-            <h1 className="text-4xl font-heading font-bold text-white mb-4">
-              Optimize your waste costs with
+            <h1 className="text-5xl md:text-6xl font-heading font-bold text-white mb-4">
+              Protect your income!
             </h1>
-            <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none bg-gradient-accent bg-clip-text text-transparent">
+            <span className="text-5xl md:text-[7rem] font-bold mt-1 leading-none bg-gradient-accent bg-clip-text text-transparent">
               WasteWise
             </span>
             <p className="text-xl text-white/80 mt-6 mb-8 max-w-2xl mx-auto">
