@@ -1,6 +1,7 @@
 import { Home, BarChart3, Recycle, MapPin, TrendingUp, Settings, User, Bell } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
+import { ThemeToggle } from "./ThemeToggle";
 
 const menuItems = [
   { icon: Home, label: "Dashboard", path: "/dashboard" },
@@ -67,7 +68,11 @@ const Sidebar = () => {
           </ul>
         </nav>
 
-        <div className="p-4 mt-auto border-t border-primary/10">
+        <div className="border-t border-primary/10">
+          <ThemeToggle />
+        </div>
+
+        <div className="p-4 border-t border-primary/10">
           <div className="flex items-center gap-3 px-4 py-3 rounded-xl glass-button hover-lift cursor-pointer group">
             <div className="h-8 w-8 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center group-hover:shadow-glow transition-all duration-300">
               <User className="h-4 w-4 text-white" />

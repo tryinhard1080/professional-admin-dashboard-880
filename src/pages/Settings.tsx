@@ -1,8 +1,23 @@
 import { Card } from "@/components/ui/card";
 import { Bell, Moon, Globe, Lock, Shield } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 const Settings = () => {
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return <div>Loading...</div>;
+  }
+
+  const isDark = theme === "dark";
+
   return (
     <div className="space-y-8">
       <header>
@@ -32,7 +47,10 @@ const Settings = () => {
                 <p className="text-sm text-muted-foreground">Toggle dark mode theme</p>
               </div>
             </div>
-            <Switch />
+            <Switch 
+              checked={isDark}
+              onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
+            />
           </div>
 
           <div className="flex items-center justify-between">
