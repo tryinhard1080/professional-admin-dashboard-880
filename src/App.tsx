@@ -8,7 +8,7 @@ import Sidebar from "@/components/Sidebar";
 import Landing from "./pages/Landing";
 import Dashboard from "./pages/Dashboard";
 import Analytics from "./pages/Analytics";
-import WasteTracking from "./pages/WasteTracking";
+import ViewReports from "./pages/ViewReports";
 import Properties from "./pages/Properties";
 import CostOptimization from "./pages/CostOptimization";
 import Settings from "./pages/Settings";
@@ -34,7 +34,7 @@ const App = () => (
                     <Routes>
                       <Route path="/dashboard" element={<Dashboard />} />
                       <Route path="/analytics" element={<Analytics />} />
-                      <Route path="/transactions" element={<WasteTracking />} />
+                      <Route path="/transactions" element={<ViewReports />} />
                       <Route path="/notifications" element={<Properties />} />
                       <Route path="/profile" element={<CostOptimization />} />
                       <Route path="/settings" element={<Settings />} />

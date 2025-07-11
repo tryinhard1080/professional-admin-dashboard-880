@@ -1,4 +1,4 @@
-import { Home, BarChart3, Recycle, MapPin, TrendingUp, Settings, User, Bell } from "lucide-react";
+import { Home, BarChart3, FileText, MapPin, TrendingUp, Settings, User, Bell, BarChart2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
@@ -6,7 +6,7 @@ import { ThemeToggle } from "./ThemeToggle";
 const menuItems = [
   { icon: Home, label: "Dashboard", path: "/dashboard" },
   { icon: BarChart3, label: "Analytics", path: "/analytics" },
-  { icon: Recycle, label: "Waste Tracking", path: "/transactions" },
+  { icon: FileText, label: "View Reports", path: "/transactions" },
   { icon: MapPin, label: "Properties", path: "/notifications" },
   { icon: TrendingUp, label: "Rent vs Purchase Calculator - Coming Soon", path: "/profile" },
   { icon: Settings, label: "Settings", path: "/settings" },
@@ -21,7 +21,7 @@ const Sidebar = () => {
         <div className="p-6 border-b border-primary/10">
           <div className="flex items-center gap-3 hover-scale cursor-pointer">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center hover:shadow-glow transition-all duration-300 animate-float">
-              <Recycle className="h-6 w-6 text-white" />
+              <BarChart2 className="h-6 w-6 text-white" />
             </div>
             <div>
               <h2 className="text-xl font-bold gradient-text">WasteWise</h2>

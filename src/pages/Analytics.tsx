@@ -1,10 +1,33 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Building2, FileText, DollarSign, TrendingDown, TrendingUp, AlertTriangle, CheckCircle, Calendar, MapPin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Building2, FileText, DollarSign, TrendingDown, TrendingUp, AlertTriangle, CheckCircle, Calendar, MapPin, ArrowLeft, Download, Share2 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Analytics = () => {
   return (
     <div className="space-y-6 max-w-none w-full animate-fade-in">
+      {/* Navigation Header */}
+      <div className="flex items-center justify-between">
+        <Link to="/transactions">
+          <Button variant="outline" size="sm">
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Back to Reports
+          </Button>
+        </Link>
+        
+        <div className="flex items-center gap-2">
+          <Button variant="outline" size="sm">
+            <Share2 className="h-4 w-4 mr-2" />
+            Share
+          </Button>
+          <Button variant="outline" size="sm">
+            <Download className="h-4 w-4 mr-2" />
+            Export PDF
+          </Button>
+        </div>
+      </div>
+
       {/* Header Section */}
       <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-6 border border-primary/20">
         <div className="flex items-center justify-between mb-4">

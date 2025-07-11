@@ -449,7 +449,7 @@ const Index = () => {
                   size="lg"
                 >
                   <Brain className="mr-2 h-5 w-5" />
-                  Start Analysis ({uploadedFiles.filter(f => f.status === 'ready').length} files)
+                  Generate Report ({uploadedFiles.filter(f => f.status === 'ready').length} files)
                 </Button>
               </div>
 
