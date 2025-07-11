@@ -7,7 +7,7 @@ const menuItems = [
   { icon: BarChart3, label: "Analytics", path: "/analytics" },
   { icon: Recycle, label: "Waste Tracking", path: "/transactions" },
   { icon: MapPin, label: "Properties", path: "/notifications" },
-  { icon: TrendingUp, label: "Cost Optimization", path: "/profile" },
+  { icon: TrendingUp, label: "Rent vs Purchase Calculator - Coming Soon", path: "/profile" },
   { icon: Settings, label: "Settings", path: "/settings" },
 ];
 

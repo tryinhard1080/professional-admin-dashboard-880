@@ -1,125 +1,263 @@
 import { Card } from "@/components/ui/card";
-import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, Tooltip, PieChart, Pie, Cell } from "recharts";
-import { TrendingUp, Recycle, DollarSign, Target } from "lucide-react";
-
-const efficiencyData = [
-  { name: "Jan", efficiency: 76, cost: 15000, routes: 45 },
-  { name: "Feb", efficiency: 82, cost: 13500, routes: 42 },
-  { name: "Mar", efficiency: 79, cost: 17000, routes: 48 },
-  { name: "Apr", efficiency: 85, cost: 16200, routes: 44 },
-  { name: "May", efficiency: 88, cost: 18500, routes: 46 },
-  { name: "Jun", efficiency: 91, cost: 17800, routes: 43 },
-];
-
-const wasteTypeData = [
-  { name: "Recyclables", value: 35, color: "#22c55e" },
-  { name: "Organic", value: 28, color: "#84cc16" },
-  { name: "Mixed Waste", value: 25, color: "#f59e0b" },
-  { name: "Hazardous", value: 12, color: "#ef4444" },
-];
-
+import { Badge } from "@/components/ui/badge";
+import { Building2, FileText, DollarSign, TrendingDown, TrendingUp, AlertTriangle, CheckCircle, Calendar, MapPin } from "lucide-react";
 
 const Analytics = () => {
   return (
-    <div className="space-y-8">
-      <header className="animate-fade-in">
-        <h1 className="text-4xl font-bold gradient-text">Advanced Analytics</h1>
-        <p className="text-muted-foreground">AI-powered insights and operational intelligence</p>
-      </header>
+    <div className="space-y-6 max-w-none w-full animate-fade-in">
+      {/* Header Section */}
+      <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl p-6 border border-primary/20">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-3">
+            <div className="p-3 rounded-xl bg-gradient-to-br from-primary to-accent">
+              <FileText className="h-6 w-6 text-white" />
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold gradient-text">Waste Service Contract Analysis</h1>
+              <p className="text-muted-foreground">Comprehensive comparison and savings report</p>
+            </div>
+          </div>
+          <Badge variant="outline" className="bg-success/10 text-success border-success/20">
+            Analysis Complete
+          </Badge>
+        </div>
+        
+        {/* Property Details */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="flex items-center gap-2">
+            <Building2 className="h-4 w-4 text-muted-foreground" />
+            <span className="text-sm font-medium">Property: Industrial Complex #247</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <MapPin className="h-4 w-4 text-muted-foreground" />
+            <span className="text-sm">Location: 1234 Industrial Blvd</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Calendar className="h-4 w-4 text-muted-foreground" />
+            <span className="text-sm">Analysis Date: December 2024</span>
+          </div>
+        </div>
+      </div>
 
-      {/* Enhanced KPI Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 animate-slide-up">
-        {[
-          { title: "Route Efficiency", value: "91%", change: "+5%", icon: TrendingUp, color: "from-primary to-primary-glow" },
-          { title: "Cost Reduction", value: "$31.5K", change: "+18%", icon: DollarSign, color: "from-success to-primary-glow" },
-          { title: "Diversion Rate", value: "78.4%", change: "+3.2%", icon: Recycle, color: "from-warning to-accent" },
-          { title: "Target Achievement", value: "94%", change: "+7%", icon: Target, color: "from-accent to-warning" },
-        ].map((kpi, i) => (
-          <Card key={i} variant="glass" interactive className={`group hover-lift stagger-${i + 1}`}>
-            <div className="p-4">
-              <div className="flex items-start justify-between">
-                <div className="space-y-2">
-                  <p className="text-sm font-medium text-foreground/80">{kpi.title}</p>
-                  <h3 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">{kpi.value}</h3>
-                  <p className="text-sm text-success font-medium flex items-center gap-1">
-                    <TrendingUp className="w-3 h-3" />
-                    {kpi.change}
-                  </p>
-                </div>
-                <div className={`p-3 bg-gradient-to-br ${kpi.color} rounded-lg group-hover:animate-glow-pulse transition-all duration-300`}>
-                  <kpi.icon className="h-5 w-5 text-white" />
-                </div>
+      {/* Service Provider Comparison Summary */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <Card className="p-6 border-red-200 bg-red-50/50 dark:bg-red-950/20 dark:border-red-800">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 rounded-lg bg-red-500">
+              <Building2 className="h-5 w-5 text-white" />
+            </div>
+            <h3 className="text-lg font-semibold text-red-700 dark:text-red-300">Republic Services</h3>
+          </div>
+          <div className="space-y-2">
+            <div className="flex justify-between">
+              <span className="text-sm text-muted-foreground">Monthly Cost:</span>
+              <span className="font-semibold text-red-700 dark:text-red-300">$8,247.50</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-sm text-muted-foreground">Annual Cost:</span>
+              <span className="font-semibold text-red-700 dark:text-red-300">$98,970.00</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-sm text-muted-foreground">Service Level:</span>
+              <Badge variant="outline" className="text-red-600 border-red-300">Current Provider</Badge>
+            </div>
+          </div>
+        </Card>
+
+        <Card className="p-6 border-green-200 bg-green-50/50 dark:bg-green-950/20 dark:border-green-800">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 rounded-lg bg-green-500">
+              <Building2 className="h-5 w-5 text-white" />
+            </div>
+            <h3 className="text-lg font-semibold text-green-700 dark:text-green-300">Waste Management</h3>
+          </div>
+          <div className="space-y-2">
+            <div className="flex justify-between">
+              <span className="text-sm text-muted-foreground">Monthly Cost:</span>
+              <span className="font-semibold text-green-700 dark:text-green-300">$6,185.25</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-sm text-muted-foreground">Annual Cost:</span>
+              <span className="font-semibold text-green-700 dark:text-green-300">$74,223.00</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-sm text-muted-foreground">Service Level:</span>
+              <Badge variant="outline" className="text-green-600 border-green-300">Recommended</Badge>
+            </div>
+          </div>
+        </Card>
+      </div>
+
+      {/* Annual Savings Summary */}
+      <Card className="p-6 bg-gradient-to-r from-blue-50/50 to-blue-100/50 dark:from-blue-950/20 dark:to-blue-900/20 border-blue-200 dark:border-blue-800">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600">
+              <DollarSign className="h-6 w-6 text-white" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-blue-700 dark:text-blue-300">Potential Annual Savings</h3>
+              <p className="text-blue-600/80 dark:text-blue-400/80">By switching to Waste Management</p>
+            </div>
+          </div>
+          <div className="text-right">
+            <div className="text-3xl font-bold text-blue-700 dark:text-blue-300">$24,747.00</div>
+            <div className="flex items-center gap-2 text-blue-600 dark:text-blue-400">
+              <TrendingDown className="h-4 w-4" />
+              <span className="text-sm font-medium">25% cost reduction</span>
+            </div>
+          </div>
+        </div>
+      </Card>
+
+      {/* Detailed Contract Elements Comparison */}
+      <Card className="p-6">
+        <h3 className="text-lg font-semibold mb-6 flex items-center gap-2">
+          <FileText className="h-5 w-5" />
+          Contract Elements Comparison
+        </h3>
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead>
+              <tr className="border-b">
+                <th className="text-left py-3 font-medium">Service Element</th>
+                <th className="text-center py-3 font-medium text-red-600">Republic Services</th>
+                <th className="text-center py-3 font-medium text-green-600">Waste Management</th>
+                <th className="text-center py-3 font-medium">Savings</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y">
+              <tr>
+                <td className="py-3 font-medium">Base Service Fee</td>
+                <td className="text-center py-3 text-red-600">$6,850.00</td>
+                <td className="text-center py-3 text-green-600">$5,275.00</td>
+                <td className="text-center py-3 font-semibold text-blue-600">$1,575.00</td>
+              </tr>
+              <tr>
+                <td className="py-3 font-medium">Fuel Surcharge</td>
+                <td className="text-center py-3 text-red-600">$425.50</td>
+                <td className="text-center py-3 text-green-600">$315.25</td>
+                <td className="text-center py-3 font-semibold text-blue-600">$110.25</td>
+              </tr>
+              <tr>
+                <td className="py-3 font-medium">Environmental Fee</td>
+                <td className="text-center py-3 text-red-600">$185.00</td>
+                <td className="text-center py-3 text-green-600">$125.00</td>
+                <td className="text-center py-3 font-semibold text-blue-600">$60.00</td>
+              </tr>
+              <tr>
+                <td className="py-3 font-medium">Administrative Fee</td>
+                <td className="text-center py-3 text-red-600">$287.00</td>
+                <td className="text-center py-3 text-green-600">$195.00</td>
+                <td className="text-center py-3 font-semibold text-blue-600">$92.00</td>
+              </tr>
+              <tr>
+                <td className="py-3 font-medium">Recycling Processing</td>
+                <td className="text-center py-3 text-red-600">$275.00</td>
+                <td className="text-center py-3 text-green-600">$150.00</td>
+                <td className="text-center py-3 font-semibold text-blue-600">$125.00</td>
+              </tr>
+              <tr>
+                <td className="py-3 font-medium">Disposal Fee</td>
+                <td className="text-center py-3 text-red-600">$225.00</td>
+                <td className="text-center py-3 text-green-600">$125.00</td>
+                <td className="text-center py-3 font-semibold text-blue-600">$100.00</td>
+              </tr>
+              <tr className="bg-muted/30 font-semibold">
+                <td className="py-3">Monthly Total</td>
+                <td className="text-center py-3 text-red-600">$8,247.50</td>
+                <td className="text-center py-3 text-green-600">$6,185.25</td>
+                <td className="text-center py-3 text-blue-600">$2,062.25</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </Card>
+
+      {/* Contract Risk Assessment */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <Card className="p-6">
+          <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+            <AlertTriangle className="h-5 w-5 text-warning" />
+            Risk Assessment
+          </h3>
+          <div className="space-y-3">
+            <div className="flex items-center justify-between p-3 rounded-lg bg-red-50 dark:bg-red-950/20">
+              <span className="text-sm">Annual Price Increases</span>
+              <Badge variant="destructive">High Risk</Badge>
+            </div>
+            <div className="flex items-center justify-between p-3 rounded-lg bg-yellow-50 dark:bg-yellow-950/20">
+              <span className="text-sm">Service Level Guarantees</span>
+              <Badge variant="outline" className="text-warning border-warning">Medium</Badge>
+            </div>
+            <div className="flex items-center justify-between p-3 rounded-lg bg-green-50 dark:bg-green-950/20">
+              <span className="text-sm">Contract Flexibility</span>
+              <Badge variant="outline" className="text-success border-success">Low Risk</Badge>
+            </div>
+          </div>
+        </Card>
+
+        <Card className="p-6">
+          <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+            <CheckCircle className="h-5 w-5 text-success" />
+            Efficiency Metrics
+          </h3>
+          <div className="space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-sm">Service Reliability</span>
+              <div className="flex items-center gap-2">
+                <TrendingUp className="h-4 w-4 text-success" />
+                <span className="font-semibold text-success">98.5%</span>
               </div>
             </div>
-          </Card>
-        ))}
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Enhanced Efficiency Trends */}
-        <Card variant="glass" className="p-6 hover-lift animate-fade-in">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 rounded-lg bg-gradient-primary">
-              <TrendingUp className="h-5 w-5 text-white" />
+            <div className="flex items-center justify-between">
+              <span className="text-sm">Cost Efficiency</span>
+              <div className="flex items-center gap-2">
+                <TrendingUp className="h-4 w-4 text-success" />
+                <span className="font-semibold text-success">25% better</span>
+              </div>
             </div>
-            <h3 className="text-xl font-semibold gradient-text">Operational Efficiency</h3>
-          </div>
-          <div className="h-[300px] w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={efficiencyData}>
-                <XAxis dataKey="name" stroke="hsl(var(--muted-foreground))" fontSize={12} />
-                <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} />
-                <Tooltip 
-                  contentStyle={{
-                    backgroundColor: "hsl(var(--card))",
-                    border: "1px solid hsl(var(--border))",
-                    borderRadius: "12px",
-                    backdropFilter: "blur(8px)"
-                  }}
-                />
-                <Line
-                  type="monotone"
-                  dataKey="efficiency"
-                  stroke="hsl(var(--primary))"
-                  strokeWidth={3}
-                  dot={{ fill: "hsl(var(--primary))", strokeWidth: 2, r: 4 }}
-                  name="Efficiency %"
-                />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
-        </Card>
-
-        {/* Enhanced Waste Composition */}
-        <Card variant="glass" className="p-6 hover-lift animate-fade-in">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 rounded-lg bg-gradient-secondary">
-              <Recycle className="h-5 w-5 text-white" />
+            <div className="flex items-center justify-between">
+              <span className="text-sm">Environmental Impact</span>
+              <div className="flex items-center gap-2">
+                <TrendingUp className="h-4 w-4 text-success" />
+                <span className="font-semibold text-success">15% reduction</span>
+              </div>
             </div>
-            <h3 className="text-xl font-semibold gradient-text-secondary">Waste Composition</h3>
-          </div>
-          <div className="h-[300px] w-full">
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie
-                  data={wasteTypeData}
-                  cx="50%"
-                  cy="50%"
-                  outerRadius={80}
-                  dataKey="value"
-                  label={({ name, value }) => `${name}: ${value}%`}
-                >
-                  {wasteTypeData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                  ))}
-                </Pie>
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
           </div>
         </Card>
       </div>
 
+      {/* Recommendation Summary */}
+      <Card className="p-6 bg-gradient-to-r from-success/10 to-primary/10 border-success/20">
+        <div className="flex items-start gap-4">
+          <div className="p-3 rounded-xl bg-gradient-to-br from-success to-primary">
+            <CheckCircle className="h-6 w-6 text-white" />
+          </div>
+          <div className="flex-1">
+            <h3 className="text-xl font-bold text-success mb-2">Recommendation: Switch to Waste Management</h3>
+            <p className="text-muted-foreground mb-4">
+              Based on our comprehensive analysis, switching to Waste Management will provide significant cost savings 
+              while maintaining or improving service quality. The projected annual savings of $24,747 represents a 25% 
+              cost reduction compared to your current Republic Services contract.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-4 w-4 text-success" />
+                <span>Lower monthly fees</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-4 w-4 text-success" />
+                <span>Better service reliability</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-4 w-4 text-success" />
+                <span>Enhanced recycling program</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Card>
     </div>
   );
 };
