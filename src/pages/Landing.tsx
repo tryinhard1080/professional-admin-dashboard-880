@@ -12,11 +12,14 @@ export default function Landing() {
             <h1 className="text-5xl md:text-6xl font-heading font-bold text-white mb-4">
               Protect your income!
             </h1>
+            <h2 className="text-2xl md:text-3xl font-medium text-white/90 mb-2">
+              Use WasteWise
+            </h2>
             <span className="text-5xl md:text-[7rem] font-bold mt-1 leading-none bg-gradient-accent bg-clip-text text-transparent">
               WasteWise
             </span>
             <p className="text-xl text-white/80 mt-6 mb-8 max-w-2xl mx-auto">
-              AI-powered waste management analytics that reduce costs by up to 30% while improving sustainability
+              AI-powered waste management. Don't let a small oversight on your waste contract blow your budget!
             </p>
             <div className="flex gap-4 justify-center mb-12">
               <Button asChild size="lg" variant="secondary">
