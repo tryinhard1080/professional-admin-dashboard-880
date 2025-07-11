@@ -61,10 +61,10 @@ export default function Landing() {
             </div>
             <div className="bg-accent/20 p-4 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
-                <Recycle className="w-4 h-4 text-accent-foreground" />
-                <span className="text-xs text-muted-foreground">Efficiency</span>
+                <DollarSign className="w-4 h-4 text-accent-foreground" />
+                <span className="text-xs text-muted-foreground">Savings</span>
               </div>
-              <div className="text-2xl font-bold text-accent-foreground">92%</div>
+              <div className="text-2xl font-bold text-accent-foreground">25%</div>
             </div>
           </div>
 
