@@ -44,7 +44,7 @@ export default function Landing() {
             
             <h1 className="text-5xl md:text-6xl font-heading font-bold text-white mb-2">
               <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-                WasteWise
+                WasteWise Intelligence
               </span>
             </h1>
             <h2 className="text-2xl md:text-3xl font-medium text-secondary mb-2">
