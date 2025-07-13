@@ -106,7 +106,7 @@ export default function Landing() {
           </div>
         </>
       }>
-        <div className="h-full w-full bg-white/90 backdrop-blur-sm rounded-2xl p-6 overflow-hidden hover-lift transition-all duration-500 border border-white/20 shadow-elegant">
+        <div className="h-full w-full bg-background border border-border rounded-2xl p-6 overflow-hidden hover-lift transition-all duration-500 shadow-elegant">
           {/* Enhanced Dashboard Preview Header */}
           <div className="flex items-center justify-between mb-6 pb-4 border-b border-border">
             <div className="flex items-center space-x-3">
@@ -119,7 +119,7 @@ export default function Landing() {
               </div>
             </div>
             <div className="text-right">
-              <div className="flex items-center gap-2 text-sm text-muted-foreground mb-1">
+              <div className="flex items-center gap-2 text-sm text-foreground mb-1">
                 <CheckCircle className="w-3 h-3 text-secondary" />
                 <span>Analysis Complete</span>
               </div>
@@ -128,41 +128,41 @@ export default function Landing() {
           </div>
 
           {/* Enhanced Key Metrics Grid with AI Theme */}
-          <div className="grid grid-cols-3 gap-4 mb-6">
-            <div className="bg-primary/10 p-4 rounded-lg hover-scale transition-all duration-300 border border-primary/20 relative overflow-hidden">
+          <div className="grid grid-cols-3 gap-3 mb-6">
+            <div className="bg-card border border-border p-4 rounded-lg hover-scale transition-all duration-300 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-8 h-8 bg-primary/10 rounded-bl-full"></div>
               <div className="flex items-center gap-2 mb-2">
                 <div className="p-1 rounded bg-primary/20">
                   <DollarSign className="w-4 h-4 text-primary" />
                 </div>
-                <span className="text-xs font-medium text-muted-foreground">Annual Savings</span>
+                <span className="text-xs font-medium text-foreground">Annual Savings</span>
               </div>
-              <div className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">$48K</div>
-              <div className="text-xs text-primary mt-1">+20% vs last year</div>
+              <div className="text-2xl font-bold text-primary">$48K</div>
+              <div className="text-xs text-secondary font-medium mt-1">+20% vs last year</div>
             </div>
             
-            <div className="bg-destructive/10 p-4 rounded-lg hover-scale transition-all duration-300 border border-destructive/20 relative overflow-hidden">
+            <div className="bg-card border border-border p-4 rounded-lg hover-scale transition-all duration-300 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-8 h-8 bg-destructive/10 rounded-bl-full"></div>
               <div className="flex items-center gap-2 mb-2">
                 <div className="p-1 rounded bg-destructive/20">
                   <BarChart className="w-4 h-4 text-destructive" />
                 </div>
-                <span className="text-xs font-medium text-muted-foreground">Risk Score</span>
+                <span className="text-xs font-medium text-foreground">Risk Score</span>
               </div>
               <div className="text-2xl font-bold text-destructive">Medium</div>
-              <div className="text-xs text-destructive mt-1">3 issues found</div>
+              <div className="text-xs text-destructive font-medium mt-1">3 issues found</div>
             </div>
             
-            <div className="bg-secondary/10 p-4 rounded-lg hover-scale transition-all duration-300 border border-secondary/20 relative overflow-hidden">
+            <div className="bg-card border border-border p-4 rounded-lg hover-scale transition-all duration-300 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-8 h-8 bg-secondary/10 rounded-bl-full"></div>
               <div className="flex items-center gap-2 mb-2">
                 <div className="p-1 rounded bg-secondary/20">
                   <TrendingUp className="w-4 h-4 text-secondary" />
                 </div>
-                <span className="text-xs font-medium text-muted-foreground">Efficiency</span>
+                <span className="text-xs font-medium text-foreground">Efficiency</span>
               </div>
-              <div className="text-2xl font-bold bg-gradient-secondary bg-clip-text text-transparent">87%</div>
-              <div className="text-xs text-secondary mt-1">Above average</div>
+              <div className="text-2xl font-bold text-secondary">87%</div>
+              <div className="text-xs text-secondary font-medium mt-1">Above average</div>
             </div>
           </div>
 
@@ -172,34 +172,66 @@ export default function Landing() {
               <Zap className="w-4 h-4 text-primary" />
               AI Cost Optimization Forecast
             </h3>
-            <div className="h-32 bg-card border border-border rounded-lg p-3 relative">
-              <div className="absolute top-2 right-2 space-y-1 text-xs">
+            <div className="h-40 bg-card border border-border rounded-lg p-4 relative">
+              <div className="absolute top-3 right-3 space-y-2 text-xs bg-background/90 backdrop-blur-sm p-2 rounded border border-border">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-0.5 bg-destructive"></div>
-                  <span className="text-muted-foreground">Current Spend</span>
+                  <span className="text-foreground font-medium">Current Spend</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-0.5 bg-primary"></div>
-                  <span className="text-muted-foreground">Optimized Spend</span>
+                  <span className="text-foreground font-medium">Optimized Spend</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-2 bg-secondary/30 rounded-sm"></div>
-                  <span className="text-muted-foreground">AI Savings</span>
+                  <div className="w-3 h-2 bg-secondary/50 rounded-sm"></div>
+                  <span className="text-foreground font-medium">AI Savings</span>
                 </div>
               </div>
               
-              <svg className="w-full h-full" viewBox="0 0 400 140">
-                <defs>
-                  <linearGradient id="ai-savings-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="hsl(var(--secondary))" stopOpacity="0.4" />
-                    <stop offset="100%" stopColor="hsl(var(--secondary))" stopOpacity="0.1" />
-                  </linearGradient>
-                </defs>
-                
-                <polygon fill="url(#ai-savings-gradient)" points="0,80 50,75 100,70 150,65 200,60 250,55 300,50 350,45 400,40 400,100 350,95 300,90 250,85 200,80 150,75 100,70 50,65 0,60" />
-                <polyline fill="none" stroke="hsl(var(--destructive))" strokeWidth="3" points="0,80 50,75 100,70 150,65 200,60 250,55 300,50 350,45 400,40" />
-                <polyline fill="none" stroke="hsl(var(--primary))" strokeWidth="3" strokeDasharray="6,3" points="0,60 50,65 100,70 150,75 200,80 250,85 300,90 350,95 400,100" />
-              </svg>
+              <div className="w-full h-full relative">
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 120" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="ai-savings-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="hsl(var(--secondary))" stopOpacity="0.3" />
+                      <stop offset="100%" stopColor="hsl(var(--secondary))" stopOpacity="0.05" />
+                    </linearGradient>
+                  </defs>
+                  
+                  {/* AI Savings Area */}
+                  <polygon 
+                    fill="url(#ai-savings-gradient)" 
+                    points="20,60 80,55 140,50 200,45 260,40 320,35 380,30 380,100 320,95 260,90 200,85 140,80 80,75 20,70" 
+                  />
+                  
+                  {/* Current Spend Line */}
+                  <polyline 
+                    fill="none" 
+                    stroke="hsl(var(--destructive))" 
+                    strokeWidth="2.5" 
+                    points="20,60 80,55 140,50 200,45 260,40 320,35 380,30"
+                  />
+                  
+                  {/* Optimized Spend Line */}
+                  <polyline 
+                    fill="none" 
+                    stroke="hsl(var(--primary))" 
+                    strokeWidth="2.5" 
+                    strokeDasharray="4,2" 
+                    points="20,70 80,75 140,80 200,85 260,90 320,95 380,100"
+                  />
+                  
+                  {/* Data Points */}
+                  <circle cx="20" cy="60" r="2" fill="hsl(var(--destructive))" />
+                  <circle cx="140" cy="50" r="2" fill="hsl(var(--destructive))" />
+                  <circle cx="260" cy="40" r="2" fill="hsl(var(--destructive))" />
+                  <circle cx="380" cy="30" r="2" fill="hsl(var(--destructive))" />
+                  
+                  <circle cx="20" cy="70" r="2" fill="hsl(var(--primary))" />
+                  <circle cx="140" cy="80" r="2" fill="hsl(var(--primary))" />
+                  <circle cx="260" cy="90" r="2" fill="hsl(var(--primary))" />
+                  <circle cx="380" cy="100" r="2" fill="hsl(var(--primary))" />
+                </svg>
+              </div>
             </div>
           </div>
 
@@ -210,45 +242,45 @@ export default function Landing() {
               AI-Identified Opportunities
             </h3>
             <div className="space-y-3">
-              <div className="p-4 rounded-lg bg-gradient-to-r from-primary/5 to-transparent border border-primary/10 hover-scale transition-all duration-300 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-12 h-12 bg-primary/5 rounded-bl-full flex items-center justify-center">
+              <div className="p-4 rounded-lg bg-card border border-border hover-scale transition-all duration-300 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-12 h-12 bg-primary/10 rounded-bl-full flex items-center justify-center">
                   <FileText className="w-4 h-4 text-primary" />
                 </div>
-                <div className="flex justify-between text-sm mb-2">
-                  <span className="font-medium text-foreground">Contract Term Optimization</span>
-                  <span className="text-primary font-bold">$18K/year</span>
+                <div className="flex justify-between items-center text-sm mb-2">
+                  <span className="font-semibold text-foreground">Contract Term Optimization</span>
+                  <span className="text-primary font-bold bg-primary/10 px-2 py-1 rounded">$18K/year</span>
                 </div>
                 <p className="text-xs text-muted-foreground mb-3">AI detected sub-optimal contract terms vs industry standards</p>
                 <div className="w-full bg-muted rounded-full h-2">
-                  <div className="bg-gradient-primary h-2 rounded-full animate-glow-pulse transition-all duration-1000" style={{width: '60%'}}></div>
+                  <div className="bg-primary h-2 rounded-full transition-all duration-1000" style={{width: '60%'}}></div>
                 </div>
               </div>
               
-              <div className="p-4 rounded-lg bg-gradient-to-r from-secondary/5 to-transparent border border-secondary/10 hover-scale transition-all duration-300 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-12 h-12 bg-secondary/5 rounded-bl-full flex items-center justify-center">
+              <div className="p-4 rounded-lg bg-card border border-border hover-scale transition-all duration-300 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-12 h-12 bg-secondary/10 rounded-bl-full flex items-center justify-center">
                   <TrendingUp className="w-4 h-4 text-secondary" />
                 </div>
-                <div className="flex justify-between text-sm mb-2">
-                  <span className="font-medium text-foreground">Route & Schedule Optimization</span>
-                  <span className="text-secondary font-bold">$22K/year</span>
+                <div className="flex justify-between items-center text-sm mb-2">
+                  <span className="font-semibold text-foreground">Route & Schedule Optimization</span>
+                  <span className="text-secondary font-bold bg-secondary/10 px-2 py-1 rounded">$22K/year</span>
                 </div>
                 <p className="text-xs text-muted-foreground mb-3">Machine learning analysis of pickup patterns and efficiency gains</p>
                 <div className="w-full bg-muted rounded-full h-2">
-                  <div className="bg-gradient-secondary h-2 rounded-full animate-glow-pulse transition-all duration-1000" style={{width: '75%'}}></div>
+                  <div className="bg-secondary h-2 rounded-full transition-all duration-1000" style={{width: '75%'}}></div>
                 </div>
               </div>
               
-              <div className="p-4 rounded-lg bg-gradient-to-r from-accent/5 to-transparent border border-accent/10 hover-scale transition-all duration-300 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-12 h-12 bg-accent/5 rounded-bl-full flex items-center justify-center">
+              <div className="p-4 rounded-lg bg-card border border-border hover-scale transition-all duration-300 relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-12 h-12 bg-accent/10 rounded-bl-full flex items-center justify-center">
                   <BarChart className="w-4 h-4 text-accent" />
                 </div>
-                <div className="flex justify-between text-sm mb-2">
-                  <span className="font-medium text-foreground">Container Right-sizing</span>
-                  <span className="text-accent font-bold">$8K/year</span>
+                <div className="flex justify-between items-center text-sm mb-2">
+                  <span className="font-semibold text-foreground">Container Right-sizing</span>
+                  <span className="text-accent font-bold bg-accent/10 px-2 py-1 rounded">$8K/year</span>
                 </div>
                 <p className="text-xs text-muted-foreground mb-3">AI analysis of waste volume patterns for optimal container sizing</p>
                 <div className="w-full bg-muted rounded-full h-2">
-                  <div className="bg-gradient-to-r from-accent to-primary h-2 rounded-full animate-glow-pulse transition-all duration-1000" style={{width: '35%'}}></div>
+                  <div className="bg-accent h-2 rounded-full transition-all duration-1000" style={{width: '35%'}}></div>
                 </div>
               </div>
             </div>
