@@ -1,4 +1,3 @@
-
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -49,7 +48,7 @@ export default function Landing() {
               </span>
             </h1>
             <h2 className="text-2xl md:text-3xl font-medium text-secondary mb-2">
-              Intelligence
+              WasteWise Line
             </h2>
             <p className="text-lg text-white/90 mb-4">
               Professional Waste Management Platform
