@@ -1,3 +1,4 @@
+
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -161,30 +162,30 @@ export default function Landing() {
             </div>
           </div>
 
-          {/* Enhanced Chart Preview */}
-          <div className="mb-6">
+          {/* Enhanced Chart Preview - Fixed sizing and legend */}
+          <div className="mb-4">
             <h3 className="text-md font-semibold text-foreground mb-3 flex items-center gap-2">
               <Zap className="w-4 h-4 text-primary" />
               AI Cost Optimization Forecast
             </h3>
-            <div className="h-48 bg-card border border-border rounded-lg p-4 relative">
-              <div className="absolute top-3 right-3 space-y-2 text-xs glass-card p-3 rounded border border-border z-10">
+            <div className="h-40 bg-card border border-border rounded-lg p-3 relative">
+              <div className="absolute top-2 right-2 flex flex-col gap-1 text-xs glass-card p-2 rounded border border-border z-10">
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-0.5 bg-destructive"></div>
-                  <span className="text-foreground font-medium">Current Spend</span>
+                  <div className="w-2 h-0.5 bg-destructive"></div>
+                  <span className="text-foreground text-xs">Current</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-0.5 bg-primary"></div>
-                  <span className="text-foreground font-medium">Optimized Spend</span>
+                  <div className="w-2 h-0.5 bg-primary"></div>
+                  <span className="text-foreground text-xs">Optimized</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-2 bg-secondary/50 rounded-sm"></div>
-                  <span className="text-foreground font-medium">AI Savings</span>
+                  <div className="w-2 h-1 bg-secondary/50 rounded-sm"></div>
+                  <span className="text-foreground text-xs">Savings</span>
                 </div>
               </div>
               
               <div className="w-full h-full relative">
-                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 140" preserveAspectRatio="none">
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 120" preserveAspectRatio="none">
                   <defs>
                     <linearGradient id="ai-savings-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
                       <stop offset="0%" stopColor="hsl(var(--secondary))" stopOpacity="0.3" />
@@ -195,36 +196,36 @@ export default function Landing() {
                   {/* AI Savings Area */}
                   <polygon 
                     fill="url(#ai-savings-gradient)" 
-                    points="20,60 80,55 140,50 200,45 260,40 320,35 380,30 380,100 320,95 260,90 200,85 140,80 80,75 20,70" 
+                    points="20,50 80,45 140,40 200,35 260,30 320,25 380,20 380,80 320,75 260,70 200,65 140,60 80,55 20,50" 
                   />
                   
                   {/* Current Spend Line */}
                   <polyline 
                     fill="none" 
                     stroke="hsl(var(--destructive))" 
-                    strokeWidth="2.5" 
-                    points="20,60 80,55 140,50 200,45 260,40 320,35 380,30"
+                    strokeWidth="2" 
+                    points="20,50 80,45 140,40 200,35 260,30 320,25 380,20"
                   />
                   
                   {/* Optimized Spend Line */}
                   <polyline 
                     fill="none" 
                     stroke="hsl(var(--primary))" 
-                    strokeWidth="2.5" 
-                    strokeDasharray="4,2" 
-                    points="20,70 80,75 140,80 200,85 260,90 320,95 380,100"
+                    strokeWidth="2" 
+                    strokeDasharray="3,2" 
+                    points="20,50 80,55 140,60 200,65 260,70 320,75 380,80"
                   />
                   
                   {/* Data Points */}
-                  <circle cx="20" cy="60" r="2" fill="hsl(var(--destructive))" />
-                  <circle cx="140" cy="50" r="2" fill="hsl(var(--destructive))" />
-                  <circle cx="260" cy="40" r="2" fill="hsl(var(--destructive))" />
-                  <circle cx="380" cy="30" r="2" fill="hsl(var(--destructive))" />
+                  <circle cx="20" cy="50" r="1.5" fill="hsl(var(--destructive))" />
+                  <circle cx="140" cy="40" r="1.5" fill="hsl(var(--destructive))" />
+                  <circle cx="260" cy="30" r="1.5" fill="hsl(var(--destructive))" />
+                  <circle cx="380" cy="20" r="1.5" fill="hsl(var(--destructive))" />
                   
-                  <circle cx="20" cy="70" r="2" fill="hsl(var(--primary))" />
-                  <circle cx="140" cy="80" r="2" fill="hsl(var(--primary))" />
-                  <circle cx="260" cy="90" r="2" fill="hsl(var(--primary))" />
-                  <circle cx="380" cy="100" r="2" fill="hsl(var(--primary))" />
+                  <circle cx="20" cy="50" r="1.5" fill="hsl(var(--primary))" />
+                  <circle cx="140" cy="60" r="1.5" fill="hsl(var(--primary))" />
+                  <circle cx="260" cy="70" r="1.5" fill="hsl(var(--primary))" />
+                  <circle cx="380" cy="80" r="1.5" fill="hsl(var(--primary))" />
                 </svg>
               </div>
             </div>
