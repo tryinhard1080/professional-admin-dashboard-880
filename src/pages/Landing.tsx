@@ -47,9 +47,6 @@ export default function Landing() {
                 WasteWise Intelligence
               </span>
             </h1>
-            <h2 className="text-2xl md:text-3xl font-medium text-secondary mb-2">
-              WasteWise Line
-            </h2>
             <p className="text-lg text-white/90 mb-4">
               Professional Waste Management Platform
             </p>
