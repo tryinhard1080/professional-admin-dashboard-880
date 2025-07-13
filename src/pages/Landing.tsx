@@ -21,12 +21,12 @@ export default function Landing() {
         </svg>
       </div>
 
-      {/* Floating AI Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-20 w-3 h-3 bg-secondary rounded-full animate-float opacity-60"></div>
-        <div className="absolute top-40 right-32 w-2 h-2 bg-primary rounded-full animate-float opacity-40" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-32 left-1/4 w-4 h-4 bg-accent rounded-full animate-float opacity-50" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute bottom-20 right-20 w-2 h-2 bg-secondary rounded-full animate-float opacity-30" style={{ animationDelay: '0.5s' }}></div>
+      {/* Subtle AI Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
+        <div className="absolute top-20 left-20 w-2 h-2 bg-secondary/30 rounded-full"></div>
+        <div className="absolute top-40 right-32 w-1 h-1 bg-primary/30 rounded-full"></div>
+        <div className="absolute bottom-32 left-1/4 w-2 h-2 bg-accent/30 rounded-full"></div>
+        <div className="absolute bottom-20 right-20 w-1 h-1 bg-secondary/30 rounded-full"></div>
       </div>
 
       <ContainerScroll titleComponent={
@@ -34,11 +34,11 @@ export default function Landing() {
           {/* Professional Header */}
           <div className="text-center mb-8">
             <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full text-sm text-white/80">
+              <div className="flex items-center gap-2 px-3 py-1 glass-card rounded-full text-sm text-white">
                 <Brain className="w-4 h-4" />
                 <span>AI Analysis Ready</span>
               </div>
-              <div className="flex items-center gap-2 px-3 py-1 bg-white/10 rounded-full text-sm text-white/80">
+              <div className="flex items-center gap-2 px-3 py-1 glass-card rounded-full text-sm text-white">
                 <Shield className="w-4 h-4" />
                 <span>Enterprise-Grade Security</span>
               </div>
@@ -55,44 +55,44 @@ export default function Landing() {
             <p className="text-lg text-white/90 mb-4">
               Professional Waste Management Platform
             </p>
-            <p className="text-xl text-white/80 max-w-2xl mx-auto mb-8">
-              Claude 3.5 Sonnet AI analyzes waste contracts against industry standards. 
-              Identify risks, optimize costs, and protect your budget with intelligent insights.
+            <p className="text-xl text-white max-w-2xl mx-auto mb-8">
+              Cutting edge AI models analyze waste contracts against industry standards. 
+              Save your time and your budgets - making sure no detail gets missed in your annual waste spend review.
             </p>
           </div>
 
           {/* Enhanced Process Visualization */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 max-w-4xl mx-auto">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center border border-white/20">
+            <div className="glass-card rounded-lg p-4 text-center border border-white/20">
               <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-3">
                 <Upload className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-sm font-semibold text-white mb-1">Upload Contract</h3>
-              <p className="text-xs text-white/70">&lt; 30 seconds</p>
+              <p className="text-xs text-white/80">&lt; 30 seconds</p>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center border border-white/20">
+            <div className="glass-card rounded-lg p-4 text-center border border-white/20">
               <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center mx-auto mb-3">
                 <Brain className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-sm font-semibold text-white mb-1">AI Analysis</h3>
-              <p className="text-xs text-white/70">3-5 seconds</p>
+              <p className="text-xs text-white/80">3-5 seconds</p>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center border border-white/20">
+            <div className="glass-card rounded-lg p-4 text-center border border-white/20">
               <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center mx-auto mb-3">
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-sm font-semibold text-white mb-1">Risk Analysis</h3>
-              <p className="text-xs text-white/70">1-2 seconds</p>
+              <p className="text-xs text-white/80">1-2 seconds</p>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-center border border-white/20">
+            <div className="glass-card rounded-lg p-4 text-center border border-white/20">
               <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-3">
                 <FileText className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-sm font-semibold text-white mb-1">Professional Report</h3>
-              <p className="text-xs text-white/70">Instant</p>
+              <p className="text-xs text-white/80">Instant</p>
             </div>
           </div>
 
@@ -106,7 +106,7 @@ export default function Landing() {
           </div>
         </>
       }>
-        <div className="h-full w-full bg-background border border-border rounded-2xl p-6 overflow-hidden hover-lift transition-all duration-500 shadow-elegant">
+        <div className="h-full w-full glass-card border border-white/20 rounded-2xl p-6 overflow-hidden hover-lift transition-all duration-500 shadow-elegant">
           {/* Enhanced Dashboard Preview Header */}
           <div className="flex items-center justify-between mb-6 pb-4 border-b border-border">
             <div className="flex items-center space-x-3">
@@ -114,12 +114,12 @@ export default function Landing() {
                 <Brain className="w-4 h-4 text-primary-foreground" />
               </div>
               <div>
-                <h2 className="text-lg font-bold text-foreground">WasteWise Intelligence</h2>
-                <p className="text-sm text-muted-foreground">AI-Powered Analytics Dashboard</p>
+                <h2 className="text-lg font-bold text-white">WasteWise Intelligence</h2>
+                <p className="text-sm text-white/80">AI-Powered Analytics Dashboard</p>
               </div>
             </div>
             <div className="text-right">
-              <div className="flex items-center gap-2 text-sm text-foreground mb-1">
+              <div className="flex items-center gap-2 text-sm text-white mb-1">
                 <CheckCircle className="w-3 h-3 text-secondary" />
                 <span>Analysis Complete</span>
               </div>
@@ -168,28 +168,28 @@ export default function Landing() {
 
           {/* Enhanced Chart Preview */}
           <div className="mb-6">
-            <h3 className="text-md font-semibold text-foreground mb-3 flex items-center gap-2">
+            <h3 className="text-md font-semibold text-white mb-3 flex items-center gap-2">
               <Zap className="w-4 h-4 text-primary" />
               AI Cost Optimization Forecast
             </h3>
-            <div className="h-40 bg-card border border-border rounded-lg p-4 relative">
-              <div className="absolute top-3 right-3 space-y-2 text-xs bg-background/90 backdrop-blur-sm p-2 rounded border border-border">
+            <div className="h-48 glass-secondary border border-white/20 rounded-lg p-4 relative">
+              <div className="absolute top-3 right-3 space-y-2 text-xs glass-card p-3 rounded border border-white/20">
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-0.5 bg-destructive"></div>
-                  <span className="text-foreground font-medium">Current Spend</span>
+                  <span className="text-white font-medium">Current Spend</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-0.5 bg-primary"></div>
-                  <span className="text-foreground font-medium">Optimized Spend</span>
+                  <span className="text-white font-medium">Optimized Spend</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-2 bg-secondary/50 rounded-sm"></div>
-                  <span className="text-foreground font-medium">AI Savings</span>
+                  <span className="text-white font-medium">AI Savings</span>
                 </div>
               </div>
               
               <div className="w-full h-full relative">
-                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 120" preserveAspectRatio="none">
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 140" preserveAspectRatio="none">
                   <defs>
                     <linearGradient id="ai-savings-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
                       <stop offset="0%" stopColor="hsl(var(--secondary))" stopOpacity="0.3" />
@@ -289,27 +289,27 @@ export default function Landing() {
       </ContainerScroll>
 
       {/* Enhanced Content Section Below Dashboard */}
-      <div className="py-20 px-6 bg-gradient-to-b from-card to-background/50">
+      <div className="py-20 px-6 glass-primary">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               How WasteWise Intelligence Works
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Powered by Claude 3.5 Sonnet AI, our platform provides enterprise-grade waste management intelligence that transforms how organizations manage costs and risks.
+            <p className="text-lg text-white/90 max-w-2xl mx-auto">
+              For property managers: Save your time and your budgets making sure no detail gets missed in your annual waste spend review. Powered by cutting edge AI models, our platform provides enterprise-grade waste management intelligence.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-card/50 backdrop-blur-sm rounded-lg p-6 border border-border hover-lift transition-all duration-300">
+            <div className="glass-card rounded-lg p-6 border border-white/20 hover-lift transition-all duration-300">
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                 <Brain className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">AI-Powered Contract Analysis</h3>
-              <p className="text-muted-foreground mb-4">
-                Claude 3.5 Sonnet technology analyzes contracts against industry standards, identifying hidden costs and optimization opportunities in seconds.
+              <h3 className="text-xl font-semibold text-white mb-3">AI-Powered Contract Analysis</h3>
+              <p className="text-white/90 mb-4">
+                Cutting edge AI models analyze contracts against industry standards, identifying hidden costs and optimization opportunities in seconds.
               </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
+              <ul className="space-y-2 text-sm text-white/80">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 text-secondary" />
                   <span>99.7% accuracy in contract analysis</span>
@@ -321,15 +321,15 @@ export default function Landing() {
               </ul>
             </div>
 
-            <div className="bg-card/50 backdrop-blur-sm rounded-lg p-6 border border-border hover-lift transition-all duration-300">
+            <div className="glass-card rounded-lg p-6 border border-white/20 hover-lift transition-all duration-300">
               <div className="w-12 h-12 bg-destructive/10 rounded-lg flex items-center justify-center mb-4">
                 <Shield className="w-6 h-6 text-destructive" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">Risk Assessment & Mitigation</h3>
-              <p className="text-muted-foreground mb-4">
+              <h3 className="text-xl font-semibold text-white mb-3">Risk Assessment & Mitigation</h3>
+              <p className="text-white/90 mb-4">
                 Identify potential risks with color-coded severity levels and cost impact analysis. Prevent budget overruns before they happen.
               </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
+              <ul className="space-y-2 text-sm text-white/80">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 text-secondary" />
                   <span>Predictive risk modeling</span>
@@ -341,15 +341,15 @@ export default function Landing() {
               </ul>
             </div>
 
-            <div className="bg-card/50 backdrop-blur-sm rounded-lg p-6 border border-border hover-lift transition-all duration-300">
+            <div className="glass-card rounded-lg p-6 border border-white/20 hover-lift transition-all duration-300">
               <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
                 <FileText className="w-6 h-6 text-secondary" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">Instant Professional Reports</h3>
-              <p className="text-muted-foreground mb-4">
+              <h3 className="text-xl font-semibold text-white mb-3">Instant Professional Reports</h3>
+              <p className="text-white/90 mb-4">
                 Executive-ready insights with actionable recommendations and cost savings. Professional reports generated instantly for immediate decision-making.
               </p>
-              <ul className="space-y-2 text-sm text-muted-foreground">
+              <ul className="space-y-2 text-sm text-white/80">
                 <li className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 text-secondary" />
                   <span>C-suite ready presentations</span>
