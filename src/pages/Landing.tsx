@@ -389,8 +389,8 @@ export default function Landing() {
                     <p className="text-sm text-muted-foreground">Comprehensive AI analysis ensures every contract clause is reviewed</p>
                   </div>
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-3">
-                      <Clock className="w-6 h-6 text-accent" />
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3">
+                      <Clock className="w-6 h-6 text-primary" />
                     </div>
                     <h4 className="font-semibold text-foreground mb-2">Time Savings</h4>
                     <p className="text-sm text-muted-foreground">Complete contract reviews in minutes instead of hours or days</p>
