@@ -111,7 +111,7 @@ const TrashBossAI = () => {
               </div>
               <div>
                 <CardTitle className="text-lg">Chat Preview</CardTitle>
-                <CardDescription>Experience the power of conversational waste analytics</CardDescription>
+                <CardDescription className="text-foreground font-medium">Experience the power of conversational waste analytics</CardDescription>
               </div>
               <div className="ml-auto flex items-center gap-2">
                 <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
