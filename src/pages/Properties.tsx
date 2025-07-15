@@ -137,22 +137,57 @@ const SupplierDirectory = () => {
     <div className="space-y-8 animate-fade-in">
       <header className="space-y-4">
         <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-4xl font-bold gradient-text">Supplier Directory</h1>
-            <p className="text-muted-foreground mt-2">Find verified waste management suppliers and service providers</p>
+          <div className="flex items-center gap-4">
+            <div>
+              <h1 className="text-4xl font-bold gradient-text">Supplier Directory</h1>
+              <p className="text-muted-foreground mt-2">Find verified waste management suppliers and service providers</p>
+            </div>
+            <Badge variant="outline" className="glass-primary px-3 py-1 text-xs font-medium text-accent-amber border-accent-amber/30">
+              Preview
+            </Badge>
           </div>
           <Badge variant="outline" className="glass-card px-4 py-2 text-sm font-medium">
             Coming Soon: Advanced Filters
           </Badge>
         </div>
         
-        <div className="relative max-w-md">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-          <input
-            type="text"
-            placeholder="Search suppliers..."
-            className="w-full pl-10 pr-4 py-3 glass-input rounded-xl border border-border/30 focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-300"
-          />
+        <div className="space-y-4">
+          <div className="relative max-w-md">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+            <input
+              type="text"
+              placeholder="Search coming soon..."
+              disabled
+              className="w-full pl-10 pr-4 py-3 glass-input rounded-xl border border-border/30 opacity-60 cursor-not-allowed"
+            />
+          </div>
+          
+          {/* Preview Notice Card */}
+          <Card className="glass-card p-4 border-accent-amber/20">
+            <div className="flex items-start gap-3">
+              <div className="p-2 rounded-lg glass-primary">
+                <Star className="h-5 w-5 text-accent-amber" />
+              </div>
+              <div className="space-y-2">
+                <h3 className="font-medium text-foreground">Directory Preview</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  You're viewing sample supplier data. Full functionality including verified listings, 
+                  real reviews, direct booking, and advanced search will be available soon.
+                </p>
+                <div className="flex flex-wrap gap-2 mt-3">
+                  <Badge variant="outline" className="glass-secondary text-xs px-2 py-1 border-primary/20">
+                    Coming Soon: Real Suppliers
+                  </Badge>
+                  <Badge variant="outline" className="glass-secondary text-xs px-2 py-1 border-primary/20">
+                    Coming Soon: Direct Booking
+                  </Badge>
+                  <Badge variant="outline" className="glass-secondary text-xs px-2 py-1 border-primary/20">
+                    Coming Soon: Verified Reviews
+                  </Badge>
+                </div>
+              </div>
+            </div>
+          </Card>
         </div>
       </header>
 
@@ -255,8 +290,15 @@ const SupplierDirectory = () => {
                 </div>
 
                 {/* Contact Button */}
-                <button className="w-full mt-4 glass-button rounded-xl py-2.5 text-sm font-medium text-foreground hover:text-primary transition-all duration-300">
+                <button 
+                  disabled 
+                  className="w-full mt-4 glass-button rounded-xl py-2.5 text-sm font-medium text-muted-foreground opacity-60 cursor-not-allowed relative group"
+                  title="Coming soon - Direct supplier contact"
+                >
                   Contact Supplier
+                  <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-background/90 rounded-xl text-xs">
+                    Coming Soon
+                  </span>
                 </button>
               </div>
             </Card>
@@ -266,8 +308,15 @@ const SupplierDirectory = () => {
 
       {/* Load More */}
       <div className="text-center pt-8">
-        <button className="glass-button px-8 py-3 rounded-xl text-sm font-medium text-foreground hover:text-primary transition-all duration-300">
+        <button 
+          disabled 
+          className="glass-button px-8 py-3 rounded-xl text-sm font-medium text-muted-foreground opacity-60 cursor-not-allowed relative group"
+          title="Coming soon - More suppliers"
+        >
           Load More Suppliers
+          <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-background/90 rounded-xl text-xs">
+            Coming Soon
+          </span>
         </button>
       </div>
     </div>
