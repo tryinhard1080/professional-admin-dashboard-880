@@ -10,6 +10,7 @@ import Dashboard from "./pages/Dashboard";
 import Analytics from "./pages/Analytics";
 import ViewReports from "./pages/ViewReports";
 import Properties from "./pages/Properties";
+import TrashBossAI from "./pages/TrashBossAI";
 import CostOptimization from "./pages/CostOptimization";
 import Settings from "./pages/Settings";
 
@@ -36,6 +37,7 @@ const App = () => (
                       <Route path="/analytics" element={<Analytics />} />
                       <Route path="/transactions" element={<ViewReports />} />
                       <Route path="/notifications" element={<Properties />} />
+                      <Route path="/trash-boss-ai" element={<TrashBossAI />} />
                       <Route path="/profile" element={<CostOptimization />} />
                       <Route path="/settings" element={<Settings />} />
                     </Routes>
