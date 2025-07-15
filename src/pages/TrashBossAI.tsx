@@ -1,4 +1,3 @@
-
 import { Brain, MessageSquare, BarChart3, Download, Sparkles, Zap, TrendingUp, FileText, Clock, Users } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -94,10 +93,10 @@ const TrashBossAI = () => {
                   Coming Soon
                 </Badge>
               </div>
-              <p className="text-xl text-muted-foreground">Your AI-Powered Waste Management Assistant</p>
+              <p className="text-xl text-foreground">Your AI-Powered Waste Management Assistant</p>
             </div>
           </div>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-foreground max-w-3xl mx-auto">
             Revolutionize how you analyze waste data, generate insights, and optimize operations with our advanced AI chatbot. 
             Ask questions, iterate on reports, and export professional-grade deliverables—all through natural conversation.
           </p>
