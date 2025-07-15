@@ -4,6 +4,12 @@ import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { StandardPageHeader } from "@/components/layout/StandardPageHeader";
+import { MetricCard } from "@/components/layout/MetricCard";
+import { ActionCard } from "@/components/layout/ActionCard";
+import { DataVisualizationCard } from "@/components/layout/DataVisualizationCard";
+import { StatusIndicator } from "@/components/layout/StatusIndicator";
+import { LoadingState } from "@/components/layout/LoadingState";
 import { Recycle, TrendingDown, TrendingUp, Truck, MapPin, DollarSign, ArrowUpRight, ArrowDownRight, Upload, FileText, Brain, BarChart3, Download, Leaf, PiggyBank, Bell, Settings, FileCheck, FileSpreadsheet, Image, Clock, CheckCircle, AlertCircle, Loader2, X, RotateCcw } from "lucide-react";
 import { useState, useRef } from "react";
 import { LineChart, Line, ResponsiveContainer, XAxis, YAxis, Tooltip, AreaChart, Area } from "recharts";
@@ -207,119 +213,69 @@ const Index = () => {
   return (
     <div className="min-h-screen animate-fade-in">
       <div className="container mx-auto px-4 py-8 max-w-7xl">
-        <header className="glass-nav backdrop-blur-md bg-white/10 border border-white/20 rounded-xl p-6 mb-8 animate-slide-up">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <div className="p-2 rounded-lg bg-gradient-primary">
-                <Recycle className="h-8 w-8 text-white" />
-              </div>
-              <div>
-                <h1 className="text-4xl font-bold gradient-text">WasteWise Analytics</h1>
-                <p className="text-lg text-muted-foreground">Smart Waste Management & Cost Optimization Platform</p>
-              </div>
-            </div>
-            <div className="flex items-center gap-3">
-              <Button variant="glass" size="icon" className="hover:scale-110">
-                <Bell className="h-5 w-5" />
-              </Button>
-              <Button variant="glass" size="icon" className="hover:scale-110">
-                <Settings className="h-5 w-5" />
-              </Button>
-              <Button variant="gradient" size="lg" className="font-semibold">
-                <TrendingUp className="mr-2 h-5 w-5" />
-                View Reports
-              </Button>
-            </div>
-          </div>
-        </header>
+        <StandardPageHeader
+          title="WasteWise Analytics"
+          description="Smart Waste Management & Cost Optimization Platform"
+          icon={Recycle}
+        >
+          <Button variant="glass" size="icon" className="hover:scale-110">
+            <Bell className="h-5 w-5" />
+          </Button>
+          <Button variant="glass" size="icon" className="hover:scale-110">
+            <Settings className="h-5 w-5" />
+          </Button>
+          <Button variant="gradient" size="lg" className="font-semibold">
+            <TrendingUp className="mr-2 h-5 w-5" />
+            View Reports
+          </Button>
+        </StandardPageHeader>
 
-        {/* Enhanced KPI Cards with 2025 Design */}
+        {/* Enhanced KPI Cards with Standardized Design */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          <Card variant="glass" interactive className="group">
-            <div className="p-6">
-              <div className="flex items-start justify-between">
-                <div>
-                  <p className="text-sm font-medium text-foreground/80">Monthly Costs/Property</p>
-                  <h2 className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">$342.50</h2>
-                  <p className="text-sm text-muted-foreground flex items-center mt-2">
-                    <TrendingDown className="mr-1 h-3 w-3 text-secondary" />
-                    -8.3% vs last month
-                  </p>
-                </div>
-                <div className="p-3 rounded-lg bg-gradient-primary group-hover:animate-glow-pulse">
-                  <DollarSign className="h-6 w-6 text-white" />
-                </div>
-              </div>
-            </div>
-          </Card>
+          <MetricCard
+            title="Monthly Costs/Property"
+            value="$342.50"
+            change={{ value: "-8.3%", trend: "down", label: "vs last month" }}
+            icon={DollarSign}
+            iconGradient="primary"
+            valueGradient="primary"
+          />
 
-          <Card variant="glass" interactive className="group">
-            <div className="p-6">
-              <div className="flex items-start justify-between">
-                <div>
-                  <p className="text-sm font-medium text-foreground/80">Pickup Optimization</p>
-                  <h2 className="text-3xl font-bold bg-gradient-secondary bg-clip-text text-transparent">94%</h2>
-                  <p className="text-sm text-muted-foreground flex items-center mt-2">
-                    <TrendingUp className="mr-1 h-3 w-3 text-secondary" />
-                    +12% efficiency gain
-                  </p>
-                </div>
-                <div className="p-3 rounded-lg bg-gradient-secondary group-hover:animate-glow-pulse">
-                  <Truck className="h-6 w-6 text-white" />
-                </div>
-              </div>
-            </div>
-          </Card>
+          <MetricCard
+            title="Pickup Optimization"
+            value="94%"
+            change={{ value: "+12%", trend: "up", label: "efficiency gain" }}
+            icon={Truck}
+            iconGradient="secondary"
+            valueGradient="secondary"
+          />
 
-          <Card variant="glass" interactive className="group">
-            <div className="p-6">
-              <div className="flex items-start justify-between">
-                <div>
-                  <p className="text-sm font-medium text-foreground/80">Sustainability Score</p>
-                  <h2 className="text-3xl font-bold bg-gradient-data bg-clip-text text-transparent">91/100</h2>
-                  <p className="text-sm text-muted-foreground flex items-center mt-2">
-                    <TrendingUp className="mr-1 h-3 w-3 text-secondary" />
-                    Industry leading
-                  </p>
-                </div>
-                <div className="p-3 rounded-lg bg-gradient-data group-hover:animate-glow-pulse">
-                  <Leaf className="h-6 w-6 text-white" />
-                </div>
-              </div>
-            </div>
-          </Card>
+          <MetricCard
+            title="Sustainability Score"
+            value="91/100"
+            change={{ value: "Industry", trend: "up", label: "leading" }}
+            icon={Leaf}
+            iconGradient="data"
+            valueGradient="data"
+          />
 
-          <Card variant="glass" interactive className="group">
-            <div className="p-6">
-              <div className="flex items-start justify-between">
-                <div>
-                  <p className="text-sm font-medium text-foreground/80">Cost Savings YTD</p>
-                  <h2 className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent">$187K</h2>
-                  <p className="text-sm text-muted-foreground flex items-center mt-2">
-                    <ArrowUpRight className="mr-1 h-3 w-3 text-secondary" />
-                    +34% vs target
-                  </p>
-                </div>
-                <div className="p-3 rounded-lg bg-gradient-primary group-hover:animate-glow-pulse">
-                  <PiggyBank className="h-6 w-6 text-white" />
-                </div>
-              </div>
-            </div>
-          </Card>
+          <MetricCard
+            title="Cost Savings YTD"
+            value="$187K"
+            change={{ value: "+34%", trend: "up", label: "vs target" }}
+            icon={PiggyBank}
+            iconGradient="primary"
+            valueGradient="primary"
+          />
         </div>
 
         {/* Specialized Upload Workflow for Waste Contracts and Invoices */}
         <div className="grid grid-cols-1 gap-8 mb-8">
-          <Card variant="glass" className="p-6">
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded-lg bg-gradient-primary">
-                  <Upload className="h-5 w-5 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold text-foreground">Specialized Document Upload</h3>
-              </div>
-              <Badge className="bg-gradient-primary text-white border-0 px-3 py-1 text-sm font-medium">AI-Powered</Badge>
-            </div>
+          <ActionCard
+            title="Specialized Document Upload"
+            icon={Upload}
+            badge={{ text: "AI-Powered", variant: "gradient" }}
+          >
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               {/* File Upload Zone */}
@@ -383,7 +339,7 @@ const Index = () => {
                         onChange={(e) => setUnitCount(e.target.value)}
                         min="1"
                         max="10000"
-                        className="glass-input"
+                        variant="glass"
                       />
                     </div>
                     <div className="space-y-2">
@@ -565,7 +521,7 @@ const Index = () => {
                 )}
               </div>
             </div>
-          </Card>
+          </ActionCard>
         </div>
 
         {/* AI Insights Section */}

@@ -30,13 +30,21 @@
     --accent-purple: 249 53% 63%;
     --accent-teal: 173 80% 40%;
     
-    /* Enhanced status colors */
+    /* Enhanced status colors for semantic usage */
     --success: 158 64% 52%;
     --success-foreground: 355.7 100% 97.3%;
     --warning: 45 93% 47%;
     --warning-foreground: 210 40% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
+    --info: 213 93% 67%;
+    --info-foreground: 210 40% 98%;
+    
+    /* Data visualization colors - semantic naming */
+    --data-positive: 158 64% 52%;
+    --data-negative: 0 84.2% 60.2%;
+    --data-neutral: 215.4 16.3% 46.9%;
+    --data-highlight: 217 91% 60%;
     
     /* Enhanced neutrals */
     --muted: 210 40% 96%;
@@ -116,6 +124,14 @@
     --warning-foreground: 210 40% 98%;
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 210 40% 98%;
+    --info: 213 93% 67%;
+    --info-foreground: 210 40% 98%;
+    
+    /* Data visualization colors - dark mode */
+    --data-positive: 158 64% 52%;
+    --data-negative: 0 62.8% 50%;
+    --data-neutral: 215 20.2% 65.1%;
+    --data-highlight: 217 91% 60%;
     
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;

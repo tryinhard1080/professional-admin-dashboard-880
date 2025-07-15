@@ -59,6 +59,16 @@ export default {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
+        info: {
+          DEFAULT: "hsl(var(--info))",
+          foreground: "hsl(var(--info-foreground))",
+        },
+        data: {
+          positive: "hsl(var(--data-positive))",
+          negative: "hsl(var(--data-negative))",
+          neutral: "hsl(var(--data-neutral))",
+          highlight: "hsl(var(--data-highlight))",
+        },
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
