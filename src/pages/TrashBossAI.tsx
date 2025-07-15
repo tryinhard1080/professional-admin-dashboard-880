@@ -295,7 +295,7 @@ const TrashBossAI = () => {
                 <div className="flex items-center gap-3">
                   <Users className="h-5 w-5 text-muted-foreground" />
                   <span className="text-sm text-foreground">
-                    Expected Launch: Q2 2025 • Early Access Available Soon
+                    Expected Launch: Q4 2025 • Early Access Available Soon
                   </span>
                 </div>
                 <Button variant="default" className="bg-gradient-primary border-0 shadow-glow" disabled>
