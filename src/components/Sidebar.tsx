@@ -1,4 +1,4 @@
-import { Home, BarChart3, FileText, MapPin, TrendingUp, Settings, User, Bell, BarChart2 } from "lucide-react";
+import { Home, BarChart3, FileText, Building2, TrendingUp, Settings, User, Bell, BarChart2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
@@ -7,7 +7,7 @@ const menuItems = [
   { icon: Home, label: "Dashboard", path: "/dashboard" },
   { icon: BarChart3, label: "Analytics", path: "/analytics" },
   { icon: FileText, label: "View Reports", path: "/transactions" },
-  { icon: MapPin, label: "Properties", path: "/notifications" },
+  { icon: Building2, label: "Supplier Directory", path: "/notifications" },
   { icon: TrendingUp, label: "Rent vs Purchase Calculator - Coming Soon", path: "/profile" },
   { icon: Settings, label: "Settings", path: "/settings" },
 ];
