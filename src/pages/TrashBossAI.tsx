@@ -1,3 +1,4 @@
+
 import { Brain, MessageSquare, BarChart3, Download, Sparkles, Zap, TrendingUp, FileText, Clock, Users } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -115,7 +116,7 @@ const TrashBossAI = () => {
               </div>
               <div className="ml-auto flex items-center gap-2">
                 <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
-                <span className="text-sm text-muted-foreground">AI Ready</span>
+                <span className="text-sm text-foreground">AI Ready</span>
               </div>
             </div>
           </CardHeader>
@@ -135,7 +136,7 @@ const TrashBossAI = () => {
                     <Brain className="h-4 w-4 text-white" />
                   </div>
                   <div className="bg-muted rounded-2xl rounded-bl-md px-4 py-3 flex-1">
-                    <p className="text-sm text-muted-foreground mb-2">{conv.ai}</p>
+                    <p className="text-sm text-foreground mb-2">{conv.ai}</p>
                     {conv.hasChart && (
                       <div className="bg-card border border-border rounded-lg p-3 mt-2">
                         <div className="flex items-center gap-2 text-xs text-muted-foreground">
@@ -163,7 +164,7 @@ const TrashBossAI = () => {
                   <div className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce"></div>
                   <div className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
                   <div className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                  <span className="text-xs text-muted-foreground ml-2">Trash Boss AI is analyzing...</span>
+                  <span className="text-xs text-foreground ml-2">Trash Boss AI is analyzing...</span>
                 </div>
               </div>
             </div>
@@ -187,7 +188,7 @@ const TrashBossAI = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="bg-accent/10 border border-accent/20 rounded-lg p-3">
-                    <p className="text-sm text-muted-foreground italic">"{capability.demo}"</p>
+                    <p className="text-sm text-foreground italic">"{capability.demo}"</p>
                     <div className="flex items-center gap-2 mt-2">
                       <Badge variant="outline" className="text-xs">Demo Query</Badge>
                       <span className="text-xs text-muted-foreground">Try when available</span>
@@ -217,7 +218,7 @@ const TrashBossAI = () => {
                 <CardContent>
                   <div className="bg-gradient-data/10 border border-primary/20 rounded-lg p-4 mb-4">
                     <div className="w-full h-24 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-md flex items-center justify-center">
-                      <div className="text-primary/60 text-sm font-medium">Preview Available Soon</div>
+                      <div className="text-foreground/60 text-sm font-medium">Preview Available Soon</div>
                     </div>
                   </div>
                   <Button variant="outline" size="sm" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors" disabled>
@@ -294,7 +295,7 @@ const TrashBossAI = () => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <Users className="h-5 w-5 text-muted-foreground" />
-                  <span className="text-sm text-muted-foreground">
+                  <span className="text-sm text-foreground">
                     Expected Launch: Q2 2025 • Early Access Available Soon
                   </span>
                 </div>
