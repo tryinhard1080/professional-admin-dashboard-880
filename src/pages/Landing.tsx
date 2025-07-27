@@ -243,19 +243,19 @@ export default function Landing() {
                 </svg>
               </div>
               
-              {/* Enhanced Legend positioned below chart */}
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center gap-8 text-sm bg-card/90 backdrop-blur-sm p-4 rounded-lg border border-border shadow-sm">
-                <div className="flex items-center gap-3">
-                  <div className="w-6 h-1 bg-destructive rounded"></div>
-                  <span className="text-foreground font-medium">Current Costs (Trending Up)</span>
+              {/* Compact Legend positioned below chart */}
+              <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex items-center gap-4 text-xs bg-card/90 backdrop-blur-sm px-3 py-2 rounded-lg border border-border shadow-sm">
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-0.5 bg-destructive rounded"></div>
+                  <span className="text-foreground">Current</span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-6 h-1 bg-primary rounded border-dashed border border-primary/50"></div>
-                  <span className="text-foreground font-medium">AI Optimized (Reduced)</span>
+                <div className="flex items-center gap-2">
+                  <div className="w-4 h-0.5 bg-primary rounded border-dashed border border-primary/50"></div>
+                  <span className="text-foreground">Optimized</span>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-4 h-3 bg-secondary/40 rounded-sm border border-secondary/60"></div>
-                  <span className="text-foreground font-medium">Projected Savings</span>
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-2 bg-secondary/40 rounded-sm border border-secondary/60"></div>
+                  <span className="text-foreground">Savings</span>
                 </div>
               </div>
             </div>
