@@ -1,12 +1,9 @@
-
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Recycle, BarChart, DollarSign, Brain, Shield, Zap, Upload, FileText, TrendingUp, CheckCircle, Clock, Eye } from "lucide-react";
-
 export default function Landing() {
-  return (
-    <div className="min-h-screen bg-gradient-primary overflow-hidden relative">
+  return <div className="min-h-screen bg-gradient-primary overflow-hidden relative">
       {/* AI-themed Background Elements */}
       <div className="absolute inset-0 opacity-10">
         <svg className="w-full h-full" viewBox="0 0 1200 800">
@@ -24,24 +21,18 @@ export default function Landing() {
       {/* Subtle Floating AI Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-20 w-2 h-2 bg-secondary/30 rounded-full animate-pulse opacity-40"></div>
-        <div className="absolute top-40 right-32 w-1.5 h-1.5 bg-primary/20 rounded-full animate-pulse opacity-30" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute bottom-32 left-1/4 w-2.5 h-2.5 bg-accent/20 rounded-full animate-pulse opacity-25" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute top-40 right-32 w-1.5 h-1.5 bg-primary/20 rounded-full animate-pulse opacity-30" style={{
+        animationDelay: '2s'
+      }}></div>
+        <div className="absolute bottom-32 left-1/4 w-2.5 h-2.5 bg-accent/20 rounded-full animate-pulse opacity-25" style={{
+        animationDelay: '4s'
+      }}></div>
       </div>
 
-      <ContainerScroll titleComponent={
-        <>
+      <ContainerScroll titleComponent={<>
           {/* Professional Header */}
           <div className="text-center mb-8">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="flex items-center gap-2 px-3 py-1 glass-card rounded-full text-sm text-white">
-                <Brain className="w-4 h-4" />
-                <span>AI Analysis Ready</span>
-              </div>
-              <div className="flex items-center gap-2 px-3 py-1 glass-card rounded-full text-sm text-white">
-                <Shield className="w-4 h-4" />
-                <span>Enterprise-Grade Security</span>
-              </div>
-            </div>
+            
             
             <h1 className="text-5xl md:text-6xl font-heading font-bold text-white mb-2">
               <span className="bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
@@ -51,10 +42,7 @@ export default function Landing() {
             <p className="text-lg text-white/90 mb-4">
               Professional Waste Management Platform
             </p>
-            <p className="text-xl text-white max-w-2xl mx-auto mb-8">
-              Cutting edge AI models analyze waste contracts against industry standards. 
-              Identify risks, optimize costs, and protect your budget with intelligent insights.
-            </p>
+            <p className="text-xl text-white max-w-2xl mx-auto mb-8">Cutting edge AI models analyze waste invoice and contract data against industry standards. Identify risks, optimize costs, and protect your budget with intelligent insights.</p>
           </div>
 
           {/* Enhanced Process Visualization */}
@@ -100,8 +88,7 @@ export default function Landing() {
               <Link to="/analytics">See Analytics</Link>
             </Button>
           </div>
-        </>
-      }>
+        </>}>
         <div className="h-full w-full bg-background border border-border rounded-2xl p-6 overflow-hidden hover-lift transition-all duration-500 shadow-elegant">
           {/* Enhanced Dashboard Preview Header */}
           <div className="flex items-center justify-between mb-6 pb-4 border-b border-border">
@@ -194,27 +181,13 @@ export default function Landing() {
                   </defs>
                   
                   {/* AI Savings Area */}
-                  <polygon 
-                    fill="url(#ai-savings-gradient)" 
-                    points="20,50 80,45 140,40 200,35 260,30 320,25 380,20 380,80 320,75 260,70 200,65 140,60 80,55 20,50" 
-                  />
+                  <polygon fill="url(#ai-savings-gradient)" points="20,50 80,45 140,40 200,35 260,30 320,25 380,20 380,80 320,75 260,70 200,65 140,60 80,55 20,50" />
                   
                   {/* Current Spend Line */}
-                  <polyline 
-                    fill="none" 
-                    stroke="hsl(var(--destructive))" 
-                    strokeWidth="2" 
-                    points="20,50 80,45 140,40 200,35 260,30 320,25 380,20"
-                  />
+                  <polyline fill="none" stroke="hsl(var(--destructive))" strokeWidth="2" points="20,50 80,45 140,40 200,35 260,30 320,25 380,20" />
                   
                   {/* Optimized Spend Line */}
-                  <polyline 
-                    fill="none" 
-                    stroke="hsl(var(--primary))" 
-                    strokeWidth="2" 
-                    strokeDasharray="3,2" 
-                    points="20,50 80,55 140,60 200,65 260,70 320,75 380,80"
-                  />
+                  <polyline fill="none" stroke="hsl(var(--primary))" strokeWidth="2" strokeDasharray="3,2" points="20,50 80,55 140,60 200,65 260,70 320,75 380,80" />
                   
                   {/* Data Points */}
                   <circle cx="20" cy="50" r="1.5" fill="hsl(var(--destructive))" />
@@ -248,7 +221,9 @@ export default function Landing() {
                 </div>
                 <p className="text-xs text-muted-foreground mb-3">AI detected sub-optimal contract terms vs industry standards</p>
                 <div className="w-full bg-muted rounded-full h-2">
-                  <div className="bg-primary h-2 rounded-full transition-all duration-1000" style={{width: '60%'}}></div>
+                  <div className="bg-primary h-2 rounded-full transition-all duration-1000" style={{
+                  width: '60%'
+                }}></div>
                 </div>
               </div>
               
@@ -262,7 +237,9 @@ export default function Landing() {
                 </div>
                 <p className="text-xs text-muted-foreground mb-3">Machine learning analysis of pickup patterns and efficiency gains</p>
                 <div className="w-full bg-muted rounded-full h-2">
-                  <div className="bg-secondary h-2 rounded-full transition-all duration-1000" style={{width: '75%'}}></div>
+                  <div className="bg-secondary h-2 rounded-full transition-all duration-1000" style={{
+                  width: '75%'
+                }}></div>
                 </div>
               </div>
               
@@ -276,7 +253,9 @@ export default function Landing() {
                 </div>
                 <p className="text-xs text-muted-foreground mb-3">AI analysis of waste volume patterns for optimal container sizing</p>
                 <div className="w-full bg-muted rounded-full h-2">
-                  <div className="bg-accent h-2 rounded-full transition-all duration-1000" style={{width: '35%'}}></div>
+                  <div className="bg-accent h-2 rounded-full transition-all duration-1000" style={{
+                  width: '35%'
+                }}></div>
                 </div>
               </div>
             </div>
@@ -402,6 +381,5 @@ export default function Landing() {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 }
