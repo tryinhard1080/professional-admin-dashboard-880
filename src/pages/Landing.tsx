@@ -155,10 +155,10 @@ export default function Landing() {
               <Zap className="w-4 h-4 text-primary" />
               AI Cost Optimization Forecast
             </h3>
-            <div className="h-56 bg-card border border-border rounded-lg p-4 relative">
-              {/* Chart Container with proper margins for labels */}
+            <div className="h-80 bg-card border border-border rounded-lg p-6 relative">
+              {/* Chart Container with expanded dimensions */}
               <div className="w-full h-full relative">
-                <svg className="w-full h-full" viewBox="0 0 450 200" preserveAspectRatio="xMidYMid meet">
+                <svg className="w-full h-full" viewBox="0 0 500 280" preserveAspectRatio="xMidYMid meet">
                   <defs>
                     <linearGradient id="ai-savings-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
                       <stop offset="0%" stopColor="hsl(var(--secondary))" stopOpacity="0.4" />
@@ -175,82 +175,86 @@ export default function Landing() {
                   
                   {/* Background Grid */}
                   <defs>
-                    <pattern id="grid" width="45" height="20" patternUnits="userSpaceOnUse">
-                      <path d="M 45 0 L 0 0 0 20" fill="none" stroke="hsl(var(--border))" strokeWidth="0.5" opacity="0.3"/>
+                    <pattern id="grid" width="50" height="25" patternUnits="userSpaceOnUse">
+                      <path d="M 50 0 L 0 0 0 25" fill="none" stroke="hsl(var(--border))" strokeWidth="0.5" opacity="0.3"/>
                     </pattern>
                   </defs>
-                  <rect width="100%" height="100%" fill="url(#grid)" />
+                  <rect x="50" y="30" width="400" height="180" fill="url(#grid)" />
                   
-                  {/* Y-Axis Labels */}
-                  <text x="25" y="50" fontSize="10" fill="hsl(var(--muted-foreground))" textAnchor="end">$60K</text>
-                  <text x="25" y="75" fontSize="10" fill="hsl(var(--muted-foreground))" textAnchor="end">$45K</text>
-                  <text x="25" y="100" fontSize="10" fill="hsl(var(--muted-foreground))" textAnchor="end">$30K</text>
-                  <text x="25" y="125" fontSize="10" fill="hsl(var(--muted-foreground))" textAnchor="end">$15K</text>
-                  <text x="25" y="150" fontSize="10" fill="hsl(var(--muted-foreground))" textAnchor="end">$0</text>
+                  {/* Y-Axis Labels with more spacing */}
+                  <text x="40" y="60" fontSize="12" fill="hsl(var(--muted-foreground))" textAnchor="end">$60K</text>
+                  <text x="40" y="95" fontSize="12" fill="hsl(var(--muted-foreground))" textAnchor="end">$45K</text>
+                  <text x="40" y="130" fontSize="12" fill="hsl(var(--muted-foreground))" textAnchor="end">$30K</text>
+                  <text x="40" y="165" fontSize="12" fill="hsl(var(--muted-foreground))" textAnchor="end">$15K</text>
+                  <text x="40" y="200" fontSize="12" fill="hsl(var(--muted-foreground))" textAnchor="end">$0</text>
                   
-                  {/* X-Axis Labels */}
-                  <text x="50" y="170" fontSize="10" fill="hsl(var(--muted-foreground))" textAnchor="middle">Q1</text>
-                  <text x="140" y="170" fontSize="10" fill="hsl(var(--muted-foreground))" textAnchor="middle">Q2</text>
-                  <text x="230" y="170" fontSize="10" fill="hsl(var(--muted-foreground))" textAnchor="middle">Q3</text>
-                  <text x="320" y="170" fontSize="10" fill="hsl(var(--muted-foreground))" textAnchor="middle">Q4</text>
-                  <text x="410" y="170" fontSize="10" fill="hsl(var(--muted-foreground))" textAnchor="middle">2025</text>
+                  {/* X-Axis Labels with more spacing */}
+                  <text x="100" y="230" fontSize="12" fill="hsl(var(--muted-foreground))" textAnchor="middle">Q1</text>
+                  <text x="180" y="230" fontSize="12" fill="hsl(var(--muted-foreground))" textAnchor="middle">Q2</text>
+                  <text x="260" y="230" fontSize="12" fill="hsl(var(--muted-foreground))" textAnchor="middle">Q3</text>
+                  <text x="340" y="230" fontSize="12" fill="hsl(var(--muted-foreground))" textAnchor="middle">Q4</text>
+                  <text x="420" y="230" fontSize="12" fill="hsl(var(--muted-foreground))" textAnchor="middle">2025</text>
                   
                   {/* Savings Area Fill */}
                   <polygon 
                     fill="url(#ai-savings-gradient)" 
-                    points="50,70 140,75 230,80 320,85 410,90 410,120 320,115 230,110 140,105 50,100"
+                    points="100,130 180,140 260,150 340,160 420,170 420,95 340,100 260,105 180,110 100,115"
                     opacity="0.8"
                   />
                   
-                  {/* Current Spend Line (Higher costs) */}
+                  {/* Current Spend Line (Going UP - realistic business costs) */}
                   <polyline 
                     fill="none" 
                     stroke="hsl(var(--destructive))" 
                     strokeWidth="3" 
-                    points="50,70 140,75 230,80 320,85 410,90"
+                    points="100,130 180,140 260,150 340,160 420,170"
                     filter="url(#glow)"
                   />
                   
-                  {/* Optimized Spend Line (Lower costs) */}
+                  {/* Optimized Spend Line (Lower costs with AI) */}
                   <polyline 
                     fill="none" 
                     stroke="hsl(var(--primary))" 
                     strokeWidth="3" 
-                    strokeDasharray="5,3" 
-                    points="50,100 140,105 230,110 320,115 410,120"
+                    strokeDasharray="6,4" 
+                    points="100,115 180,110 260,105 340,100 420,95"
                     filter="url(#glow)"
                   />
                   
-                  {/* Enhanced Data Points */}
-                  <circle cx="50" cy="70" r="3" fill="hsl(var(--destructive))" stroke="hsl(var(--background))" strokeWidth="2"/>
-                  <circle cx="140" cy="75" r="3" fill="hsl(var(--destructive))" stroke="hsl(var(--background))" strokeWidth="2"/>
-                  <circle cx="230" cy="80" r="3" fill="hsl(var(--destructive))" stroke="hsl(var(--background))" strokeWidth="2"/>
-                  <circle cx="320" cy="85" r="3" fill="hsl(var(--destructive))" stroke="hsl(var(--background))" strokeWidth="2"/>
-                  <circle cx="410" cy="90" r="3" fill="hsl(var(--destructive))" stroke="hsl(var(--background))" strokeWidth="2"/>
+                  {/* Enhanced Data Points for Current Costs */}
+                  <circle cx="100" cy="130" r="4" fill="hsl(var(--destructive))" stroke="hsl(var(--background))" strokeWidth="2"/>
+                  <circle cx="180" cy="140" r="4" fill="hsl(var(--destructive))" stroke="hsl(var(--background))" strokeWidth="2"/>
+                  <circle cx="260" cy="150" r="4" fill="hsl(var(--destructive))" stroke="hsl(var(--background))" strokeWidth="2"/>
+                  <circle cx="340" cy="160" r="4" fill="hsl(var(--destructive))" stroke="hsl(var(--background))" strokeWidth="2"/>
+                  <circle cx="420" cy="170" r="4" fill="hsl(var(--destructive))" stroke="hsl(var(--background))" strokeWidth="2"/>
                   
-                  <circle cx="50" cy="100" r="3" fill="hsl(var(--primary))" stroke="hsl(var(--background))" strokeWidth="2"/>
-                  <circle cx="140" cy="105" r="3" fill="hsl(var(--primary))" stroke="hsl(var(--background))" strokeWidth="2"/>
-                  <circle cx="230" cy="110" r="3" fill="hsl(var(--primary))" stroke="hsl(var(--background))" strokeWidth="2"/>
-                  <circle cx="320" cy="115" r="3" fill="hsl(var(--primary))" stroke="hsl(var(--background))" strokeWidth="2"/>
-                  <circle cx="410" cy="120" r="3" fill="hsl(var(--primary))" stroke="hsl(var(--background))" strokeWidth="2"/>
+                  {/* Enhanced Data Points for Optimized Costs */}
+                  <circle cx="100" cy="115" r="4" fill="hsl(var(--primary))" stroke="hsl(var(--background))" strokeWidth="2"/>
+                  <circle cx="180" cy="110" r="4" fill="hsl(var(--primary))" stroke="hsl(var(--background))" strokeWidth="2"/>
+                  <circle cx="260" cy="105" r="4" fill="hsl(var(--primary))" stroke="hsl(var(--background))" strokeWidth="2"/>
+                  <circle cx="340" cy="100" r="4" fill="hsl(var(--primary))" stroke="hsl(var(--background))" strokeWidth="2"/>
+                  <circle cx="420" cy="95" r="4" fill="hsl(var(--primary))" stroke="hsl(var(--background))" strokeWidth="2"/>
                   
-                  {/* Savings Annotation */}
-                  <text x="275" y="95" fontSize="11" fill="hsl(var(--secondary))" fontWeight="600" textAnchor="middle">$48K Annual Savings</text>
+                  {/* Savings Annotation with better positioning */}
+                  <text x="260" y="125" fontSize="13" fill="hsl(var(--secondary))" fontWeight="700" textAnchor="middle">$48K Annual Savings</text>
+                  
+                  {/* Chart Title */}
+                  <text x="250" y="20" fontSize="14" fill="hsl(var(--foreground))" fontWeight="600" textAnchor="middle">Cost Projection Analysis</text>
                 </svg>
               </div>
               
-              {/* Enhanced Legend */}
-              <div className="absolute bottom-4 left-4 flex items-center gap-6 text-xs bg-card/80 backdrop-blur-sm p-3 rounded-lg border border-border">
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-0.5 bg-destructive rounded"></div>
-                  <span className="text-foreground font-medium">Current Costs</span>
+              {/* Enhanced Legend positioned below chart */}
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center gap-8 text-sm bg-card/90 backdrop-blur-sm p-4 rounded-lg border border-border shadow-sm">
+                <div className="flex items-center gap-3">
+                  <div className="w-6 h-1 bg-destructive rounded"></div>
+                  <span className="text-foreground font-medium">Current Costs (Trending Up)</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-4 h-0.5 bg-primary rounded border-dashed border border-primary"></div>
-                  <span className="text-foreground font-medium">AI Optimized</span>
+                <div className="flex items-center gap-3">
+                  <div className="w-6 h-1 bg-primary rounded border-dashed border border-primary/50"></div>
+                  <span className="text-foreground font-medium">AI Optimized (Reduced)</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-2 bg-secondary/40 rounded-sm"></div>
+                <div className="flex items-center gap-3">
+                  <div className="w-4 h-3 bg-secondary/40 rounded-sm border border-secondary/60"></div>
                   <span className="text-foreground font-medium">Projected Savings</span>
                 </div>
               </div>
